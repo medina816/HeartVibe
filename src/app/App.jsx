@@ -6,10 +6,9 @@ import './App.css'
 function App() {
 
   return (
-    <>
-      <RouterProvider router={myRouter}/>
-     
-    </>
+    <div  className='wrapper'>
+      <RouterProvider router={myRouter}/>  
+    </div>
   )
 }
 
