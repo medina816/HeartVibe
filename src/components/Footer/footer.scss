@@ -1,0 +1,147 @@
+.footer {
+    color: #1A1A1A;
+    background: #fff;
+    width: 1440px;
+    
+    .text {
+      text-align: center;
+      margin-bottom: 60px;
+      
+      h2 {
+        color: #1A1A1A;
+        font-family: 'Rubik', sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        margin-bottom: 16px;
+      }
+      
+      p {
+        color: #34A853;
+        font-family: 'Rubik', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+      }
+    }
+  
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 60px 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+
+  
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: #1A1A1A;
+        font-family: 'Rubik', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        
+        .contact-icon {
+          width: 20px;
+          height: 20px;
+          color: #34A853;
+          flex-shrink: 0;
+        }
+      }
+    }
+  
+    .input-section {
+      max-width: 440px;
+      margin: 0 auto;
+      width: 100%;
+  
+      .input-group {
+        margin-bottom: 24px;
+  
+        .input-with-icon {
+          position: relative;
+          
+          .input-icon {
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #34A853;
+            font-size: 20px;
+            z-index: 1;
+          }
+  
+          .custom-input {
+            width: 100%;
+            height: 64px;
+            padding: 8px 24px 8px 60px;
+            border: 1px solid #DDD;
+            border-radius: 16px;
+            font-family: 'Rubik', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1A1A1A;
+            background-color: #F9F9F9;
+            box-sizing: border-box;
+  
+            &::placeholder {
+              color: #999;
+            }
+  
+            &:focus {
+              outline: none;
+              border-color: #34A853;
+              box-shadow: 0 0 0 2px rgba(52, 168, 83, 0.2);
+            }
+          }
+        }
+      }
+  
+      .submit-btn {
+        width: 100%;
+        height: 56px;
+        background-color: #34A853;
+        color: white;
+        border: none;
+        border-radius: 16px;
+        font-family: 'Rubik', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #2E8B46;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      padding: 60px 20px;
+      
+      .text h2 {
+        font-size: 28px;
+      }
+  
+      .contact-list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+  
+      .input-section {
+        .custom-input {
+          height: 56px !important;
+          font-size: 14px !important;
+        }
+        
+        .submit-btn {
+          height: 48px;
+          font-size: 14px;
+        }
+      }
+    }
+  }

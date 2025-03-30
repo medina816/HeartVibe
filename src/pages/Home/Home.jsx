@@ -4,7 +4,6 @@ import FeedbackFromVolunteers from '../../components/FeedbackFromVolunteers/Feed
 function Home() {
   return (
     <div>
-      Home
       <FeedbackFromVolunteers/>
     </div>
   )
