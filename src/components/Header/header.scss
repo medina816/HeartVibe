@@ -1,0 +1,110 @@
+.header {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid lightgray;
+
+    .first{
+        width: 144.96px;
+        height: 20px;
+
+    }
+
+    .inside {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+
+        ul {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                color: rgb(26, 26, 26);
+                font-family: Roboto, sans-serif;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 120%;
+                letter-spacing: -0.5px;
+                text-align: left;
+                cursor: pointer;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: green;
+                }
+            }
+        }
+
+        .btns {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+
+            .lang {
+                display: flex;
+                padding: 5px;
+                border-radius: 100px;
+                background: rgb(245, 245, 245);
+                overflow: hidden;
+                gap: 5px;
+
+                button {
+                    padding: 5px 10px;
+                    background-color: white;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 100px;
+                    transition: background 0.3s;
+                    color: rgba(26, 26, 26, 0.7);
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 120%;
+                    letter-spacing: -1%;
+                    text-align: left;
+
+                    &:hover {
+                        background: lightgray;
+                    }
+                    
+                    &.active {
+                        background: white;
+                        color: rgb(52, 168, 83);
+                    }
+                    &:focus {
+                        outline: none;
+                        border: none;
+                    }
+                }
+            }
+
+            .title-btn {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                border-radius: 100px;
+                background: rgb(52, 168, 83);
+                cursor: pointer;
+                transition: background 0.3s, border-color 0.3s;
+                color: rgb(255, 255, 255);
+                font-family: Roboto, sans-serif;
+                font-size: 15px;
+                font-weight: 500;
+                line-height: 120%;
+                letter-spacing: -1%;
+                border: none;
+                padding: 11px 24px;
+
+                &:hover {
+                    transform: scale(1.1);
+                    background: rgb(32, 117, 55);
+                }
+            }
+        }
+    }
+}
