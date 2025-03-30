@@ -57,7 +57,7 @@ const reviews = [
 function FeedbackFromVolunteers() {
   return (
     <section>
-      <div className='FeedbackFromVolunteersContainer'>
+      <div className='container'>
         <div className='feedbackTitleContainer'>
           <h1 className='feedbackTitle'>Отзывы волонтёров</h1>
           <div className='AllReviewsGrid'>
