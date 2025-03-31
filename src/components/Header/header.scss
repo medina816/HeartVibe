@@ -10,7 +10,6 @@
   .first {
     width: 144.96px;
     height: 20px;
-
   }
 
   .inside {
@@ -26,18 +25,40 @@
       margin: 0;
 
       li {
-        color: rgb(26, 26, 26);
-        font-family: Roboto, sans-serif;
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 120%;
-        letter-spacing: -0.5px;
-        text-align: left;
-        cursor: pointer;
-        transition: color 0.3s;
+        .nav-link {
+          color: rgb(26, 26, 26);
+          font-family: Roboto, sans-serif;
+          font-size: 15px;
+          font-weight: 400;
+          line-height: 120%;
+          letter-spacing: -0.5px;
+          text-align: left;
+          cursor: pointer;
+          transition: color 0.3s;
+          text-decoration: none;
+          display: inline-block;
+          position: relative;
+          padding-bottom: 5px;
 
-        &:hover {
-          color: green;
+          &:hover {
+            color: rgb(52, 168, 83);
+          }
+
+          &.active {
+            color: rgb(52, 168, 83);
+            font-weight: 500;
+
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 2px;
+              background-color: rgb(52, 168, 83);
+              animation: underline 0.3s ease-out;
+            }
+          }
         }
       }
     }
@@ -108,5 +129,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes underline {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
