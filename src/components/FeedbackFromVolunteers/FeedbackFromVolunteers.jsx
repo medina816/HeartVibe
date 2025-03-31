@@ -56,9 +56,8 @@ const reviews = [
 ];
 function FeedbackFromVolunteers() {
   return (
-    <section>
-      <div className='container'>
-        <div className='feedbackTitleContainer'>
+    <section  className='container'>
+        <div className='feedbackTitleTextContant'>
           <h1 className='feedbackTitle'>Отзывы волонтёров</h1>
           <div className='AllReviewsGrid'>
             <h6 className='AllReviews'>Все отзывы</h6>
@@ -74,7 +73,6 @@ function FeedbackFromVolunteers() {
           <img src={add} alt="" />
           </div>
         </div>
-      </div>
     </section>
   )
 }

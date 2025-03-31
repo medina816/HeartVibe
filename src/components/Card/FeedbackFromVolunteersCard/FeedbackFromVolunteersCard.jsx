@@ -12,8 +12,12 @@ function FeedbackFromVolunteersCard({ review }) {
             <img src={review.rating} alt="Рейтинг" />
           </div>
         </div>
-        <p className="reviewsText">{review.reviewsText}</p>
-        <p className="date">{review.date}</p>
+        <div className="reviewsText">
+        <p>{review.reviewsText}</p>
+        </div>
+        <div  className="date">
+        <p>{review.date}</p>
+        </div>
       </div>
     </div>
   );
