@@ -1,21 +1,32 @@
 import React, { useState } from "react";
-import "./header.scss";
 import logo from "../../assets/svg/logo.svg";
 import arrow from "../../assets/svg/arrow.svg";
+import { NavLink, Link } from "react-router-dom";
+import card1 from '../../assets/image/card1.png';
+import "./header.scss";
 
 function Header() {
   const [activeLang, setActiveLang] = useState("RUS");
 
   return (
     <div className="header container">
-      <img className="first" src={logo} alt="Logo" />
+      <Link to=''>
+        <img className="first" src={logo} alt="Logo" />
+      </Link>
       <div className="inside">
         <ul>
-          <li>О клубе</li>
-          <li>Мероприятия</li>
-          <li>Новости</li>
-          <li>Отзывы</li>
-          <li>Контакты</li>
+          <li>
+            <NavLink 
+              to='/club'
+              className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}
+            >
+              О клубе
+            </NavLink>
+          </li>
+          <li className="nav-link">Мероприятия</li>
+          <li className="nav-link">Новости</li>
+          <li className="nav-link">Отзывы</li>
+          <li className="nav-link">Контакты</li>
         </ul>
         <div className="btns">
           <div className="lang">
@@ -35,6 +46,7 @@ function Header() {
           </button>
         </div>
       </div>
+
     </div>
   );
 }
