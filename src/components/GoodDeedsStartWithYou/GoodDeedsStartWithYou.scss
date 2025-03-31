@@ -1,0 +1,103 @@
+.GoodDeedsStartWithYouContant {
+    text-align: center;
+    height: 700px;
+    
+    .GoodDeedsStartWithYouTextContant {
+      max-width: 670px;
+      margin: 80px auto 0;
+      position: relative;
+      text-align: center;
+    }
+  
+    h1 {
+      font-family: Rubik;
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 110%;
+      letter-spacing: -1%;
+      color: #1A1A1A;
+      margin: 0 auto;
+    }
+  
+    p {
+      font-family: Rubik;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      letter-spacing: -1%;
+      color: #242424;
+      margin: 24px auto 0;
+    }
+  
+    .BtnContant {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      gap: 16px;
+    }
+  
+    .BecomeAVolunteerBtn {
+      width: 205px;
+      height: 48px;
+      padding: 10px 24px;
+      border-radius: 100px;
+      background-color: #34A853;
+      color: white;
+      border: none;
+      font-family: Roboto;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 120%;
+      letter-spacing: -1%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      
+      &:hover {
+        background-color: darken(#34A853, 10%);
+      }
+    }
+  
+    .ViewEventsBtn {
+      width: 241px;
+      height: 48px;
+      padding: 10px 24px;
+      border-radius: 100px;
+      background-color: rgba(52, 168, 83, 0.1);
+      font-family: Roboto;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 120%;
+      letter-spacing: -1%;
+      color: #34A853;
+      border: none;
+      cursor: pointer;
+      
+      &:hover {
+        transition: background-color 0.3s ease;
+        background-color: rgba(52, 168, 83, 0.2);
+      }
+    }
+  
+    .GoodDeedsStartWithYouheroimg {
+        position: absolute;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        width: 100%;
+        max-width: 960px;
+        height: auto;
+        animation: slideUp 1s ease-out forwards;
+        z-index: -1;
+    }
+    @keyframes slideUp {
+        from {
+          transform: translateX(-50%) translateY(150px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(-50%) translateY(0);
+          opacity: 1;
+        }
+      }
+  }
