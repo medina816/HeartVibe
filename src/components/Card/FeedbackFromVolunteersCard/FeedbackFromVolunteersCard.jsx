@@ -17,6 +17,7 @@ function FeedbackFromVolunteersCard({ review }) {
         </div>
         <div  className="date">
         <p>{review.date}</p>
+        
         </div>
       </div>
     </div>
