@@ -1,7 +1,7 @@
 #root {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
 }
 
 .logo {
@@ -42,8 +42,6 @@
 .container {
   width: 1360px;
   margin: 0 auto;
-  border: 1px solid red;
-    position: fixed;
     top: 0;
     left: 0;
     right: 0;

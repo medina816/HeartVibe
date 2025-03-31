@@ -7,51 +7,51 @@ import rating from "../../assets/FeedbackFromVolunteers/svg/Rating.svg";
 import add from "../../assets/FeedbackFromVolunteers//svg/add.svg"
 
 const reviews = [
-  {
-    id: 1,
-    name: "Болот, 23 года",
-    avatar: bolot,
-    rating: rating,
-    reviewsText:
-      '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
-    date: "5 мая 2024",
-  },
-  {
-    id: 1,
-    name: "Болот, 23 года",
-    avatar: bolot,
-    rating: rating,
-    reviewsText:
-      '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
-    date: "5 мая 2024",
-  },
-  {
-    id: 1,
-    name: "Болот, 23 года",
-    avatar: bolot,
-    rating: rating,
-    reviewsText:
-      '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
-    date: "5 мая 2024",
-  },
-  {
-    id: 1,
-    name: "Болот, 23 года",
-    avatar: bolot,
-    rating: rating,
-    reviewsText:
-      '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
-    date: "5 мая 2024",
-  },
-  {
-    id: 1,
-    name: "Болот, 23 года",
-    avatar: bolot,
-    rating: rating,
-    reviewsText:
-      '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
-    date: "5 мая 2024",
-  },
+    {
+        id: 1,
+        name: "Болот, 23 года",
+        avatar: bolot,
+        rating: rating,
+        reviewsText:
+            '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
+        date: "5 мая 2024",
+    },
+    {
+        id: 1,
+        name: "Болот, 23 года",
+        avatar: bolot,
+        rating: rating,
+        reviewsText:
+            '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
+        date: "5 мая 2024",
+    },
+    {
+        id: 1,
+        name: "Болот, 23 года",
+        avatar: bolot,
+        rating: rating,
+        reviewsText:
+            '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
+        date: "5 мая 2024",
+    },
+    {
+        id: 1,
+        name: "Болот, 23 года",
+        avatar: bolot,
+        rating: rating,
+        reviewsText:
+            '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
+        date: "5 мая 2024",
+    },
+    {
+        id: 1,
+        name: "Болот, 23 года",
+        avatar: bolot,
+        rating: rating,
+        reviewsText:
+            '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
+        date: "5 мая 2024",
+    },
 
 ];
 function FeedbackFromVolunteers() {
