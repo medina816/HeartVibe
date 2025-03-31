@@ -55,28 +55,26 @@ const reviews = [
 
 ];
 function FeedbackFromVolunteers() {
-    return (
-        <section>
-            <div className='container'>
-                <div className='feedbackTitleContainer'>
-                    <h1 className='feedbackTitle'>Отзывы волонтёров</h1>
-                    <div className='AllReviewsGrid'>
-                        <h6 className='AllReviews'>Все отзывы</h6>
-                        <img src={arrowRight} alt="Стрелка вправо" />
-                    </div>
-                </div>
-                <div className='FeedbackFromVolunteersCardsGrid'>
-                    {reviews.map((review) => (
-                        <FeedbackFromVolunteersCard key={review.id} review={review} />
-                    ))}
-                    <div className='LeaveFeedback'>
-                        <h3>Оставить отзыв</h3>
-                        <img src={add} alt="" />
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
+  return (
+    <section  className='container'>
+        <div className='feedbackTitleTextContant'>
+          <h1 className='feedbackTitle'>Отзывы волонтёров</h1>
+          <div className='AllReviewsGrid'>
+            <h6 className='AllReviews'>Все отзывы</h6>
+            <img src={arrowRight} alt="Стрелка вправо" />
+          </div>
+        </div>
+        <div className='FeedbackFromVolunteersCardsGrid'>
+          {reviews.map((review) => (
+            <FeedbackFromVolunteersCard key={review.id} review={review} />
+          ))}
+          <div className='LeaveFeedback'>
+          <h3>Оставить отзыв</h3>
+          <img src={add} alt="" />
+          </div>
+        </div>
+    </section>
+  )
 }
 
 export default FeedbackFromVolunteers

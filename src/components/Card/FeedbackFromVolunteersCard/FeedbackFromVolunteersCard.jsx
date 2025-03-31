@@ -16,6 +16,15 @@ function FeedbackFromVolunteersCard({ review }) {
                 <p className="date">{review.date}</p>
             </div>
         </div>
+        <div className="reviewsText">
+        <p>{review.reviewsText}</p>
+        </div>
+        <div  className="date">
+        <p>{review.date}</p>
+        </div>
+      </div>
+    </div>
+  );
     );
 }
 

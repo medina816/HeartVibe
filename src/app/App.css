@@ -1,6 +1,6 @@
 #root {
-  width: 1360px;
-    border: 2px solid red;
+  max-width: 1360px;
+  border: 2px solid red;
   margin: 0 auto;
   padding: 0;
 }
@@ -43,6 +43,8 @@
 .container {
   width: 1360px;
   margin: 0 auto;
+  border: 1px solid red;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
