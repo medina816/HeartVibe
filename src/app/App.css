@@ -1,6 +1,8 @@
 #root {
+  width: 1360px;
+    border: 2px solid red;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
 }
 
 .logo {
