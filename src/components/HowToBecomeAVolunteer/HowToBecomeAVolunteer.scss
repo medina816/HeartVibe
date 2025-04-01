@@ -1,0 +1,100 @@
+.HowToBecomeAVolunteerContainer {
+    width: 1360px;
+    height: 500px;
+    text-align: center;
+
+    .HowToBecomeAVolunteerTitle {
+        font-family: Rubik;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 110%;
+        letter-spacing: -0.01em;
+        margin: 120px 0 0 0 ;
+    }
+
+    .startParagraf {
+        font-family: Rubik;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 110%;
+        color: #34A853;
+    }
+
+    .process {
+        display: flex;
+        align-items: center;
+        height: 204px;
+        justify-content: center;
+
+        .HowToBecomeAVolunteerCard {
+            width: 325px;
+            height: 154px;
+            text-align: center;
+
+            .heroh1 {
+                font-family: Rubik;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 110%;
+                letter-spacing: -0.01em;
+            }
+
+            .cardParagraf {
+                font-family: Rubik;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 140%;
+                letter-spacing: -0.01em;
+                color: rgba(26, 26, 26, 0.7);
+            }
+
+            .NumberContainer {
+                width: 70px;
+                height: 70px;
+                margin: auto;
+                border-radius: 50%;
+                background-color: rgba(52, 168, 83, 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                h1 {
+                    font-family: Rubik;
+                    font-weight: 600;
+                    font-size: 32px;
+                    line-height: 110%;
+                    color: #34A853;
+                }
+            }
+        }
+
+        .line1 {
+            width: 160.5px;
+            height: 4px;
+            border-radius: 10px;
+            background-color: #34A853;
+        }
+    }
+    .FillOutTheRormContainer{
+        display: flex;
+        justify-content: center;
+        margin-top: 32px;
+    }
+    .FillOutTheRorm{
+        width: 201px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 10px 24px 10px 22px;
+        border-radius: 100px;
+        color: white;
+        font-family: Roboto;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 120%;
+        letter-spacing: -1%;
+        background-color: #34A853;
+        border: none;
+
+    }
+}
