@@ -1,0 +1,260 @@
+.container {
+    position: relative;
+    overflow: hidden; 
+    
+    .circleContainer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    
+    .GoodDeedsStartWithYouContant {
+      text-align: center;
+      height: 700px;
+      position: relative;
+      z-index: 1; 
+    
+      .GoodDeedsStartWithYouTextContant {
+        max-width: 670px;
+        margin: 80px auto 0;
+        position: relative;
+        text-align: center;
+        h1 {
+          font-family: 'Rubik', sans-serif;
+          font-weight: 800;
+          font-size: 48px;
+          line-height: 110%;
+          letter-spacing: -1%;
+          color: #1A1A1A;
+          margin: 0 auto;
+        }
+      
+        p {
+          font-family: Rubik;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+          letter-spacing: -1%;
+          color: #242424;        
+          margin: 24px auto 0;
+        }
+      
+        .BtnContant {
+          display: flex;
+          justify-content: center;
+          margin-top: 40px;
+          gap: 16px;
+        }
+      
+        .BecomeAVolunteerBtn {
+          width: 205px;
+          height: 48px;
+          padding: 10px 24px 10px 22px;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          border-radius: 100px;
+          background-color: #34A853;
+          color: white; 
+          border: none;
+          font-family: Roboto;
+          font-weight: 500;
+          font-size: 15px;
+          line-height: 120%;
+          letter-spacing: -1%;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.4s ease;
+          box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.7);
+        }
+        
+        .BecomeAVolunteerBtn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(52, 168, 83, 0.4);
+          animation: pulse 1.5s infinite;
+        }
+        
+        .BecomeAVolunteerBtn:active {
+          transform: translateY(0);
+          background-color: #2E8B47;
+        }
+        
+        .ViewEventsBtn {
+          width: 241px;
+          height: 48px;
+          padding: 10px 24px 10px 21px;
+          gap: 4px;
+          display: flex;
+          align-items: center;
+          border-radius: 100px; 
+          background-color: #34A8531A;
+          font-family: Roboto;
+          font-weight: 500;
+          font-size: 15px;
+          line-height: 120%;
+          letter-spacing: -1%;
+          color: #34A853;
+          border: none;
+          cursor: pointer;
+          transition: all 0.4s ease;
+          position: relative;
+        }
+        
+        .ViewEventsBtn:hover {
+          background-color: #34A85326;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(52, 168, 83, 0.2);
+        }
+        
+        .ViewEventsBtn:active {
+          transform: translateY(0);
+        }
+        
+        @keyframes pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.7);
+          }
+          70% {
+            box-shadow: 0 0 0 10px rgba(52, 168, 83, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(52, 168, 83, 0);
+          }
+        }
+        
+        .BecomeAVolunteerBtn::after,
+        .ViewEventsBtn::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 5px;
+          height: 5px;
+          background: rgba(255, 255, 255, 0.5);
+          opacity: 0;
+          border-radius: 100%;
+          transform: scale(1, 1) translate(-50%);
+          transform-origin: 50% 50%;
+        }
+        
+        .BecomeAVolunteerBtn:focus:not(:active)::after,
+        .ViewEventsBtn:focus:not(:active)::after {
+          animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+          0% {
+            transform: scale(0, 0);
+            opacity: 0.5;
+          }
+          100% {
+            transform: scale(20, 20);
+            opacity: 0;
+          }
+        }
+      }
+    
+    
+      .GoodDeedsStartWithYouheroimg {
+        position: absolute;
+        bottom: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        width: 100%;
+        max-width: 960px;
+        height: auto;
+        animation: slideUp 1.7s ease-out forwards;
+        z-index: -1;
+      }
+    
+      @keyframes slideUp {
+        from {
+          transform: translateX(-50%) translateY(170px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(-50%) translateY(0);
+          opacity: 1;
+        }
+      }
+    }
+    
+    .circle1, .circle {
+      width: 456px;
+      height: 456px;
+      background-color:#34A8531A;
+      border-radius: 50%;
+      position: absolute;
+      opacity: 0;
+      animation: fadeInScale 1s ease-out forwards;
+      z-index: 0;
+    }
+    
+    .circle1 {
+      top: -150px;
+      left: -180px;
+      animation-delay: 0.6s;
+    }
+    
+    .circle {
+      bottom: 100px;
+      right: -230px;
+      animation-delay: 0.6s;
+    }
+    
+    @keyframes fadeInScale {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .GoodDeedsStartWithYouContant {
+        height: 600px;
+        
+        h1 {
+          font-size: 36px;
+        }
+        
+        p {
+          font-size: 14px;
+        }
+      }
+      
+      .circle1, .circle {
+        width: 300px;
+        height: 300px;
+        filter: blur(5px);
+      }
+      
+      .circle1 {
+        top: -100px;
+        left: -100px;
+      }
+      
+      .circle {
+        bottom: -80px;
+        right: -80px;
+      }
+      
+      .BtnContant {
+        flex-direction: column;
+        align-items: center;
+        
+        .BecomeAVolunteerBtn, .ViewEventsBtn {
+          width: 100%;
+          max-width: 250px;
+        }
+      }
+    }
+  }
