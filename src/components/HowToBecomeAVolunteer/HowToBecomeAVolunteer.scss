@@ -1,6 +1,6 @@
 .HowToBecomeAVolunteerContainer {
-    width: 1360px;
-    height: 500px;
+    height: 506px;
+    border: 1px solid red;
     text-align: center;
 
     .HowToBecomeAVolunteerTitle {
@@ -9,7 +9,7 @@
         font-size: 36px;
         line-height: 110%;
         letter-spacing: -0.01em;
-        margin: 120px 0 0 0 ;
+        margin: 90px 0 0 0 ;
     }
 
     .startParagraf {
@@ -24,6 +24,7 @@
         display: flex;
         align-items: center;
         height: 204px;
+        gap: 16px;
         justify-content: center;
 
         .HowToBecomeAVolunteerCard {
@@ -72,6 +73,10 @@
             height: 4px;
             border-radius: 10px;
             background-color: #34A853;
+        }
+        img{
+            width: 160.5px;
+            height: 4px; 
         }
     }
     .FillOutTheRormContainer{

@@ -7,7 +7,6 @@ function HowToBecomeAVolunteer() {
   return (
     <section className='HowToBecomeAVolunteerContainer'>
         <div>
-
         <div>
         <h1 className='HowToBecomeAVolunteerTitle'>Как стать волонтёром</h1>
         <p className='startParagraf'>Начни свой путь в волонтёрстве за 3 шага!</p>
