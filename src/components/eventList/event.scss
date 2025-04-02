@@ -1,0 +1,38 @@
+.list {
+    display: flex;
+    flex-direction: column;
+
+    .text {
+        display: flex;
+        justify-content: space-between;
+
+        h2 {
+            /* desktop/title1 */
+color: rgb(26, 26, 26);
+font-family: Rubik;
+font-size: 36px;
+font-weight: 600;
+line-height: 110%;
+letter-spacing: -1%;
+text-align: left;
+        }
+        p {
+            display: flex;
+            align-items: center;
+            width: 150px;
+height: 24px;
+/* desktop/link [semibold] */
+color: rgb(52, 168, 83);
+font-family: Roboto;
+font-size: 15px;
+font-weight: 600;
+line-height: 120%;
+letter-spacing: -1%;
+text-align: left;
+        }
+    } 
+    .inside {
+        display: flex;
+        gap: 20px;
+    }
+}
