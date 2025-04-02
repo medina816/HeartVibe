@@ -23,7 +23,7 @@ function HowToBecomeAVolunteer() {
                 <h4 className='heroh1'>Пройди инструктаж</h4>
                 <p className='cardParagraf'>получи полезные советы и рекомендации</p>
             </div>
-            <img src={line} alt="" />
+            <div className='line1'></div>
             <div className='HowToBecomeAVolunteerCard'>
                 <div className='NumberContainer'><h1>3</h1></div>
                 <h4 className='heroh1'>Приступай к добрым делам!</h4>

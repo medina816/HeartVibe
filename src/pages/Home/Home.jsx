@@ -6,8 +6,8 @@ import HowToBecomeAVolunteer from '../../components/HowToBecomeAVolunteer/HowToB
 function Home() {
   return (
     <div>
-      <GoodDeedsStartWithYou/>
-      <FeedbackFromVolunteers/>
+      {/* <GoodDeedsStartWithYou/> */}
+      {/* <FeedbackFromVolunteers/> */}
       <HowToBecomeAVolunteer/>
     </div>
   )
