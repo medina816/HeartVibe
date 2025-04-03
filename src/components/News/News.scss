@@ -1,0 +1,88 @@
+.Newscontainer{
+    width: 1360px;
+    height: 683px;
+    border: 1px solid red;
+    .newsTitle{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h1{
+            font-family: Rubik;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 110.00000000000001%;
+            letter-spacing: -1%;
+        }
+    }
+}
+.NewsCardGrid{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .NewsCard{
+        width: 438px;
+        height: 443px;
+        border-radius: 24px;
+        border: 1px solid#EBEBEB;
+        .NewsImage{
+            img{
+                width: 440px;
+                height: 246px;
+                border-radius: 14px;
+            }
+        }
+        .NewsTextContant{
+            padding: 16px;
+            .title{
+                width: 408px;
+                height: 40px;
+                margin: 12px 0 0 0;
+                font-family: Rubik;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 110.00000000000001%;
+                letter-spacing: -1%;
+            }
+            .Content{
+                width: 408px;
+                font-family: Roboto;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 120%;
+                letter-spacing: -1%;
+                margin: 8px 0 0 0;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; 
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: #1A1A1AB2;
+            }
+            .data{
+                font-family: Roboto;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 120%;
+                letter-spacing: -1%;
+                color: #1A1A1AB2;
+                margin: 0;
+            }
+            .ReadMorebtn{
+                width: 176px;
+                height: 38px;
+                padding: 10px 24px 10px 22px;
+                border-radius: 100px;
+                background-color: #34A853;
+                font-family: Roboto;
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 120%;
+                letter-spacing: -1%;
+                color: white;
+                border: none;
+                margin: 16px 0 0 0;
+            }
+        }
+
+    }
+}
