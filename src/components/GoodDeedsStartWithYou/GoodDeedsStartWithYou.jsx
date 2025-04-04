@@ -6,7 +6,7 @@ import calendar from "../../assets/GoodDeedsStartWithYou/svg/calendar.svg"
 
 function GoodDeedsStartWithYou() {
   return (
-    <section className='container'>
+    <section className='GoodDeedsStartWithYouContainer'>
       <div className='circleContainer'>
       <div className='circle'></div>
       <div className='circle1'></div>
