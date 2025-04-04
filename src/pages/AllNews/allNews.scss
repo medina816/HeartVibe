@@ -1,0 +1,12 @@
+    .newsH1{
+        font-family: Rubik;
+        font-weight: 800;
+        font-size: 48px;
+        line-height: 110.00000000000001%;
+        letter-spacing: -1%;
+        margin-bottom: 40px;
+        @media (max-width:768px) {
+            font-size: 34px;
+            
+        }
+    }
