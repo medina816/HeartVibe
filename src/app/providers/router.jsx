@@ -7,6 +7,7 @@ import AllEventsPage from "../../pages/AllEventsPage/AllEventsPage";
 import NewsCard from "../../components/Card/newsCard/NewsCard";
 import NewsInfo from "../../pages/NewsInfo/NewsInfo";
 import AllNews from "../../pages/AllNews/AllNews";
+import CategoryPage from "../../pages/CategoryPage/CategoryPage";
 
 export const myRouter = createBrowserRouter([
     {
@@ -19,6 +20,7 @@ export const myRouter = createBrowserRouter([
             {path: '/all-events', element: <AllEventsPage/>},
             {path: 'news', element: <NewsInfo/>},
             {path: 'all-News', element: <AllNews/>}
+            {path: '/category/:categoryId', element: <CategoryPage/>}
         ]
     },
 
