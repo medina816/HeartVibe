@@ -43,3 +43,8 @@ ul {
   list-style-type: none;
   padding: 0;
 }
+.wrapper {
+  width: 1360px;
+  border: 2px solid red;
+  margin: 0 auto;
+}
