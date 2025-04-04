@@ -1,5 +1,5 @@
 #root {
-  width: 1360px;
+  /* width: 1360px; */
     /* border: 2px solid red; */
   margin: 0 auto;
   padding: 0;
@@ -44,4 +44,9 @@
 ul {
   list-style-type: none;
   padding: 0;
+}
+.wrapper {
+  width: 1360px;
+  border: 2px solid red;
+  margin: 0 auto;
 }
