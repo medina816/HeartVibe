@@ -10,13 +10,58 @@
     .CardImage {
       width: 100%;
       height: 246px;
+      position: relative;
       overflow: hidden;
-      
+  
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 14px 14px 0 0;
+      }
+  
+      .btn,
+      .btn2 {
+        position: absolute;
+        bottom: 10px;
+        border-radius: 20px;
+        background: #fff;
+        border: none;
+        padding: 6px 12px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        height: 36px;
+        gap: 5px;
+        font-family: Roboto;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -1%;
+  
+        img {
+          width: 16px;
+          height: 16px;
+        }
+  
+        &:hover {
+          background: rgb(248, 247, 247);
+        }
+      }
+  
+      .btn {
+        left: 10px;
+        color: rgb(26, 26, 26);
+        font-weight: 400;
+      }
+  
+      .btn2 {
+        left: 141px;
+        color: rgb(52, 168, 83);
+        font-weight: 600;
+  
+        &:hover {
+          color: #27ae60;
+        }
       }
     }
   
@@ -47,7 +92,7 @@
         font-family: Rubik;
         font-weight: 600;
         font-size: 18px;
-        line-height: 130%; 
+        line-height: 130%;
         margin: 0 0 8px 0;
         display: -webkit-box;
         -webkit-line-clamp: 1;

@@ -1,7 +1,8 @@
 import React from "react";
 import calendar from "../../assets/new/svg/calendar.svg";
-import glassesIcon from "../../assets/svg/glasses.svg"; // Пример для категории
+import lifeIcon from '../../assets/svg/life.svg'; // Пример для жизни
 import locationIcon from "../../assets/svg/location.svg"; // Пример для локации
+import dateIcon from "../../assets/svg/date.svg"; // Пример для даты
 import { Link } from "react-router-dom";
 import "./Card.scss";
 
@@ -20,6 +21,14 @@ function Card({ event }) {
     <div className="Card">
       <div className="CardImage">
         <img src={image || '/assets/svg/event.png'} alt={title || 'Событие'} />
+        <button className="btn">
+          <img src={dateIcon} alt="Дата" />
+          {formattedDate}
+        </button>
+        <button className="btn2">
+          <img src={lifeIcon} alt="Категория" />
+          {categoryName}
+        </button>
       </div>
       <div className="CardTextContent">
         <div className="dataContainer">
