@@ -4,6 +4,7 @@ import GoodDeedsStartWithYou from '../../components/GoodDeedsStartWithYou/GoodDe
 import HowToBecomeAVolunteer from '../../components/HowToBecomeAVolunteer/HowToBecomeAVolunteer'
 import Card from '../../components/Card/Card'
 import EventsList from '../../components/EventList/EventList'
+import News from '../../components/News/News'
 
 function Home() {
   return (
@@ -15,7 +16,8 @@ function Home() {
       <EventsList/>
       <FeedbackFromVolunteers/>
       <HowToBecomeAVolunteer/>
-    </div>
+      <News/>
+]    </div>
   )
 }
 
