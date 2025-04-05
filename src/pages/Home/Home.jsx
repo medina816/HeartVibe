@@ -17,7 +17,7 @@ function Home() {
       <FeedbackFromVolunteers/>
       <HowToBecomeAVolunteer/>
       <News/>
-]    </div>
+   </div>
   )
 }
 
