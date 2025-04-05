@@ -11,13 +11,13 @@ function Home() {
     <div>
       {/* <GoodDeedsStartWithYou/> */}
       {/* <FeedbackFromVolunteers/> */}
-      <HowToBecomeAVolunteer/>
       <GoodDeedsStartWithYou/>
-      <FeedbackFromVolunteers/>
       <Card/>
       <EventsList/>
+      <FeedbackFromVolunteers/>
+      <HowToBecomeAVolunteer/>
       <News/>
-    </div>
+]    </div>
   )
 }
 
