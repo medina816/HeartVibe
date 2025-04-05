@@ -1,8 +1,9 @@
-import React from 'react';
-import './card.scss';
-import dateIcon from '../../assets/svg/date.svg';
-import glassesIcon from '../../assets/svg/glasses.svg';
-import locationIcon from '../../assets/svg/location.svg';
+import React from "react";
+import calendar from "../../assets/new/svg/calendar.svg";
+import glassesIcon from "../../assets/svg/glasses.svg"; // Пример для категории
+import locationIcon from "../../assets/svg/location.svg"; // Пример для локации
+import { Link } from "react-router-dom";
+import "./Card.scss";
 
 function Card({ event }) {
   if (!event) {
@@ -16,27 +17,27 @@ function Card({ event }) {
   const eventLocation = location || 'Локация неизвестна';
 
   return (
-    <div className="card">
-      <div className="inside">
+    <div className="Card">
+      <div className="CardImage">
         <img src={image || '/assets/svg/event.png'} alt={title || 'Событие'} />
-        <button className="btn">
-          <img src={dateIcon} alt="Дата" />
-          {formattedDate}
-        </button>
-        <button className="btn2">
-          <img src={glassesIcon} alt="Категория" />
-          {categoryName}
-        </button>
       </div>
-      <h2>{title || 'Без названия'}</h2>
-      <p>{description || 'Описание отсутствует'}</p>
-      <div className="loc">
-        <img src={locationIcon} alt="Локация" />
-        <span>{eventLocation}</span>
-      </div>
-      <div className="group-btn">
-        <button className="btn3">Записаться</button>
-        <button className="btn4">Подробнее</button>
+      <div className="CardTextContent">
+        <div className="dataContainer">
+          <img src={calendar} alt="Календарь" />
+          <p className="data">{formattedDate}</p>
+        </div>
+        <h3 className="title">{title || 'Без названия'}</h3>
+        <p className="content">{description || 'Описание отсутствует'}</p>
+        <div className="locationContainer">
+          <img src={locationIcon} alt="Локация" />
+          <span>{eventLocation}</span>
+        </div>
+        <div className="group-btn">
+          <button className="btn3">Записаться</button>
+          <Link to="/event">
+            <button className="btn4">Подробнее</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

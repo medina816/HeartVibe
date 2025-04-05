@@ -19,7 +19,7 @@ export const myRouter = createBrowserRouter([
             {path: 'club', element: <Club/>}, 
             {path: '/all-events', element: <AllEventsPage/>},
             {path: 'news', element: <NewsInfo/>},
-            {path: 'all-News', element: <AllNews/>}
+            {path: 'all-News', element: <AllNews/>},
             {path: '/category/:categoryId', element: <CategoryPage/>}
         ]
     },
