@@ -16,7 +16,7 @@ function NewsCard({ data }) {
         </div>
         <h3 className="title">{data.title}</h3>
         <p className="Content">{data.content}</p>
-        <Link to="/news">
+        <Link to={`/news/${data.id}`}>
           <button className="ReadMorebtn">Читать подробнее</button>
         </Link>
       </div>
