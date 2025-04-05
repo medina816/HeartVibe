@@ -1,55 +1,57 @@
-.Newscontainer {
-    max-width: 1360px;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-  
-    @media (max-width: 1024px) {
-      padding: 0 16px;
+.news-section {
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid red;
+  padding: 40px 0;
+
+  .news-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    .news-title {
+      font: 600 36px/1.1 'Rubik', sans-serif;
+      margin: 0;
     }
-  
-    @media (max-width: 768px) {
-      padding: 0 12px;
-      width: 100%;
-    }
-    .NewsCardGrid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    
-      @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-    
-      @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-    }  
-    .newsTitle {
+
+    .news-all-link {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-  
-      h1 {
-        font-family: Rubik;
-        font-weight: 600;
-        font-size: 36px;
-        line-height: 110%;
-        letter-spacing: -1%;
-        margin: 0;
-  
-        @media (max-width: 1024px) {
-          font-size: 32px;
-        }
-  
-        @media (max-width: 768px) {
-          font-size: 28px;
-        }
-      }
+      gap: 8px;
+      text-decoration: none;
+      color: #34A853;
+      font: 500 16px/1 'Roboto', sans-serif;
 
+      &:hover {
+        opacity: 0.9;
+      }
     }
   }
-  
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.news-loading,
+.news-error {
+  text-align: center;
+  padding: 20px;
+  font: 16px/1.5 'Roboto', sans-serif;
+}
+
+.news-error {
+  color: #d32f2f;
+}
