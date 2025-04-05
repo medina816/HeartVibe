@@ -14,6 +14,7 @@ function News() {
     dispatch(fetchNews());
   }, [dispatch]);
 
+  // Более аккуратные состояния загрузки
   if (status === "loading") return <div className="news-loading">Загрузка...</div>;
   if (status === "failed") return <div className="news-error">Ошибка: {error}</div>;
 
@@ -27,7 +28,7 @@ function News() {
         </Link>
       </div>
       
-      <div className="news-grid">
+      <div className="news-grid">   
         {news.slice(0, 3).map((item) => (
           <NewsCard key={item.id} data={item} />
         ))}
