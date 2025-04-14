@@ -21,6 +21,7 @@ export const myRouter = createBrowserRouter([
             {path: 'news', element: <NewsInfo/>},
             {path: 'all-News', element: <AllNews/>},
             {path: '/category/:categoryId', element: <CategoryPage/>}
+            {path:"/news/:id", element:<NewsInfo />},
         ]
     },
 
