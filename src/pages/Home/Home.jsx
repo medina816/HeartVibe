@@ -3,7 +3,7 @@ import FeedbackFromVolunteers from '../../components/FeedbackFromVolunteers/Feed
 import GoodDeedsStartWithYou from '../../components/GoodDeedsStartWithYou/GoodDeedsStartWithYou'
 import HowToBecomeAVolunteer from '../../components/HowToBecomeAVolunteer/HowToBecomeAVolunteer'
 import Card from '../../components/Card/Card'
-import EventsList from '../../components/EventList/EventList'
+import EventsList from '../../components/EventList/EventList';
 import News from '../../components/News/News'
 
 function Home() {
@@ -17,7 +17,7 @@ function Home() {
       <FeedbackFromVolunteers/>
       <HowToBecomeAVolunteer/>
       <News/>
-]    </div>
+  </div>
   )
 }
 
