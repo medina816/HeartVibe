@@ -18,9 +18,10 @@ export const myRouter = createBrowserRouter([
             { path: "about", element: <About/> },
             {path: 'club', element: <Club/>}, 
             {path: '/all-events', element: <AllEventsPage/>},
+            {path: 'news', element: <NewsInfo/>},
             {path: 'all-News', element: <AllNews/>},
+            {path: '/category/:categoryId', element: <CategoryPage/>}
             {path:"/news/:id", element:<NewsInfo />},
-            {path: '/category/:categoryId', element: <CategoryPage/>},
         ]
     },
 

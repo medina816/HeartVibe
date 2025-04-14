@@ -23,7 +23,9 @@ function Header() {
               О клубе
             </NavLink>
           </li>
+          <Link to={'/all-events'}>
           <li className="nav-link">Мероприятия</li>
+          </Link>
           <li className="nav-link">Новости</li>
           <li className="nav-link">Отзывы</li>
           <li className="nav-link">Контакты</li>
