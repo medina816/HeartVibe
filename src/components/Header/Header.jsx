@@ -26,7 +26,9 @@ function Header() {
           <Link to={'/all-events'}>
           <li className="nav-link">Мероприятия</li>
           </Link>
+          <Link to='/all-News'>
           <li className="nav-link">Новости</li>
+          </Link>
           <li className="nav-link">Отзывы</li>
           <li className="nav-link">Контакты</li>
         </ul>
