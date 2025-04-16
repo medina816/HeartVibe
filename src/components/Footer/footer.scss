@@ -66,6 +66,14 @@
       flex-direction: column;
       align-items: center;
     }
+    input:-webkit-autofill {
+      font-family: Rubik, serif !important;
+      font-size: 17px !important;
+      font-weight: 500 !important;
+      -webkit-text-fill-color: black !important;
+      -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+      transition: background-color 5000s ease-in-out 0s !important;
+    }
 
     .input-group {
       width: 100%;
