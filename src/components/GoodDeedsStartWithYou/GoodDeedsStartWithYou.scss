@@ -193,7 +193,8 @@
           overflow: hidden;
           transition: all 0.3s ease;
           padding: 12px 24px;
-          
+          box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.7);
+
           @media (max-width: 768px) {
             width: 100%;
           }
@@ -202,23 +203,24 @@
             width: 20px;
             height: 20px;
           }
+          
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 168, 83, 0.4);
+          }
+
+          &:active {
+            transform: translateY(0);
+          }
         }
         
         .BecomeAVolunteerBtn {
           background-color: #34A853;
           color: white;
-          border: none;
-          box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.7);
           
           &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(52, 168, 83, 0.4);
-            animation: pulse 1.5s infinite;
-          }
-          
-          &:active {
-            transform: translateY(0);
             background-color: #2E8B47;
+            animation: pulse 1.5s infinite;
           }
         }
         
@@ -229,12 +231,7 @@
           
           &:hover {
             background-color: rgba(52, 168, 83, 0.15);
-            transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(52, 168, 83, 0.2);
-          }
-          
-          &:active {
-            transform: translateY(0);
           }
         }
       }
