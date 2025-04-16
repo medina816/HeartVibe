@@ -1,6 +1,5 @@
 .NewsInfoContainer {
-    max-width: 1360px;
-    margin: 0 auto;
+    margin-top: 80px;
     padding: 24px;
     box-sizing: border-box;
   }
@@ -78,7 +77,19 @@
     line-height: 140%;
     letter-spacing: -1%;
     color: #1A1A1A;
-  }  
+  }
+
+  .NewsInfoContent2 {
+    margin-top: 80px;
+    h2{
+      font-family: Rubik, serif;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 110.00000000000001%;
+      letter-spacing: -1%;
+
+    }
+  }
   @media (max-width: 1024px) {
     .NewsInfoContainer {
       padding: 20px;
