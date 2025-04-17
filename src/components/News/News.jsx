@@ -28,7 +28,7 @@ function News() {
         </div>
       </div>
       <div className="NewsCardGrid">
-        {news.slice(0, 3).map((news) => (
+        {news.slice(0, 6).map((news) => (
           <NewsCard key={news.id} data={news}/>
         ))}
       </div>

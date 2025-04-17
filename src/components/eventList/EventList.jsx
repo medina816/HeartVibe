@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchEvents, fetchCategories } from '../../app/store/eventss/eventsSlice';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import right from '../../assets/svg/right.svg';
 import Card from '../Card/Card';
 import './event.scss';
@@ -28,22 +28,26 @@ function EventsList() {
     return <p>Нет доступных мероприятий.</p>;
   }
 
-  const displayedEvents = events.slice(0, 3);
-
   return (
     <div className='list'>
       <div className='text'>
         <h2>Ближайшие мероприятия</h2>
-          <Link to="/all-events">
-        <p>Все мероприятия
+        <Link to="/all-events">
+          <p>
+            Все мероприятия
             <img src={right} alt="Right arrow" />
-        </p>
-          </Link>
+          </p>
+        </Link>
       </div>
-      <div className='inside'>
-        {displayedEvents.map((event) => (
-          <Card key={event.id} event={event} categories={categories} />
-        ))}
+
+      <div className='scroll-wrapper'>
+        <div className='scroll-inside'>
+          {events.slice(0, 6).map((event) => (
+            <div className="scroll-card" key={event.id}>
+              <Card event={event} categories={categories} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -1,55 +1,90 @@
 .Newscontainer {
-    max-width: 1360px;
-    width: 100%;
-    margin: 0 auto;
-    box-sizing: border-box;
-  
-    @media (max-width: 1024px) {
-      padding: 0 16px;
-    }
-  
-    @media (max-width: 768px) {
-      padding: 0 12px;
-      width: 100%;
-    }
-    .NewsCardGrid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  @media (max-width: 1024px) {
+    padding: 0 16px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 12px;
+  }
+
+  .newsTitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    h1 {
+      font-family: Rubik, sans-serif;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 110%;
+      letter-spacing: -1%;
+      margin: 0;
+
       @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        font-size: 32px;
       }
-    
+
       @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        font-size: 28px;
       }
-    }  
-    .newsTitle {
+    }
+
+    .AllReviewsGrid {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-  
-      h1 {
-        font-family: Rubik;
-        font-weight: 600;
-        font-size: 36px;
-        line-height: 110%;
-        letter-spacing: -1%;
-        margin: 0;
-  
-        @media (max-width: 1024px) {
-          font-size: 32px;
-        }
-  
-        @media (max-width: 768px) {
-          font-size: 28px;
+      gap: 8px;
+
+      .AllReviews {
+        font-size: 16px;
+        font-weight: 500;
+
+        a {
+          text-decoration: none;
+          color: #007bff;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
 
+      img {
+        width: 16px;
+        height: 16px;
+      }
     }
   }
-  
+
+  .NewsCardGrid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
+
+    > * {
+      flex: 0 0 440px; // Фиксированная ширина карточки
+      scroll-snap-align: start;
+    }
+  }
+}
