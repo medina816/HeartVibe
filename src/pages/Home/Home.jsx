@@ -5,6 +5,7 @@ import HowToBecomeAVolunteer from '../../components/HowToBecomeAVolunteer/HowToB
 import Card from '../../components/Card/Card'
 import EventsList from '../../components/EventList/EventList';
 import News from '../../components/News/News'
+import SecondBlock from '../../components/secondBlock/SecondBlock'
 
 function Home() {
   return (
@@ -12,11 +13,12 @@ function Home() {
       {/* <GoodDeedsStartWithYou/> */}
       {/* <FeedbackFromVolunteers/> */}
       <GoodDeedsStartWithYou/>
+      <SecondBlock/>
       <Card/>
       <EventsList/>
+      <News/>
       <FeedbackFromVolunteers/>
       <HowToBecomeAVolunteer/>
-      <News/>
   </div>
   )
 }
