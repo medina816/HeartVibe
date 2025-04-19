@@ -1,38 +1,63 @@
 .list {
     display: flex;
     flex-direction: column;
-
+    
     .text {
         display: flex;
-        justify-content: space-between;
-
-        h2 {
-            /* desktop/title1 */
-color: rgb(26, 26, 26);
-font-family: Rubik;
-font-size: 36px;
-font-weight: 600;
-line-height: 110%;
-letter-spacing: -1%;
-text-align: left;
-        }
-        p {
-            display: flex;
-            align-items: center;
-            width: 150px;
-height: 24px;
-/* desktop/link [semibold] */
-color: rgb(52, 168, 83);
-font-family: Roboto;
-font-size: 15px;
-font-weight: 600;
-line-height: 120%;
-letter-spacing: -1%;
-text-align: left;
-        }
-    } 
-    .inside {
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      h2 {
+        color: rgb(26, 26, 26);
+        font-family: Rubik;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 110%;
+        letter-spacing: -1%;
+      }
+      
+      p {
         display: flex;
-        gap: 20px;
+        align-items: center;
+        gap: 8px;
+        color: rgb(52, 168, 83);
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 120%;
+        letter-spacing: -1%;
+  
+        img {
+            width: 20px;
+          height: 20px;
+        }
+      }
     }
-}
+    
+    .scroll-wrapper {
+      overflow-x: auto;
+      padding-bottom: 10px;
+      scrollbar-width: none; // Firefox
+      -ms-overflow-style: none; // IE/Edge
+  
+      &::-webkit-scrollbar {
+        display: none; // Chrome
+      }
+    }
+    
+    .scroll-inside {
+        display: flex;
+      gap: 60px;
+      scroll-snap-type: x mandatory;
+      padding: 10px 0;
+      min-width: max-content;
+    }
+  
+    .scroll-card {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      width: 400px; // ширина одной карточки, можно подогнать
+    }
+  }
+  

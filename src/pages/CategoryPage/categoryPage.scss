@@ -1,0 +1,28 @@
+.category-page {
+    padding: 40px 0;
+  
+    h2 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 40px;
+      font-family: 'Rubik', sans-serif;
+      text-align: center;
+    }
+  
+    .events-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 32px;
+      justify-content: center;
+      align-items: start;
+    }
+  
+    p {
+      font-size: 18px;
+      color: #999;
+      font-family: Roboto, sans-serif;
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+  
