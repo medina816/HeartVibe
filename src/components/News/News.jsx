@@ -14,7 +14,6 @@ function News() {
     dispatch(fetchNews());
   }, [dispatch]);
 
-  // Более аккуратные состояния загрузки
   if (status === "loading") return <div className="news-loading">Загрузка...</div>;
   if (status === "failed") return <div className="news-error">Ошибка: {error}</div>;
 

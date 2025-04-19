@@ -1,8 +1,17 @@
 .news-section {
   max-width: 1360px;
   width: 100%;
-  margin: 0 auto;
-  padding: 40px 0;
+  margin: auto;
+  @media (max-width: 1024px) {
+    max-width: 768px;
+    width: 100%;
+    
+  }
+
+  @media (max-width: 768px) {
+    max-width: 360px;
+    width: 100%;
+  }
 
   .news-header {
     display: flex;
