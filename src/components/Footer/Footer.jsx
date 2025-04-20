@@ -7,63 +7,58 @@ import location from '../../assets/svg/location.svg';
 import mess from '../../assets/svg/mess.svg';
 import phone from '../../assets/svg/phone.svg';
 import { FaWhatsapp, FaPhone, FaUser } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
   const [phoneNumber, setPhoneNumber] = useState("+996");
   const [name, setName] = useState("");
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { loading, success, error } = useSelector((state) => state.feedback);
 
   const handlePhoneChange = (e) => {
     let input = e.target.value;
-    if (!input.startsWith("+996")) {
-      input = "+996";
-    }
+    if (!input.startsWith("+996")) input = "+996";
     input = "+996" + input.replace(/\D/g, "").slice(3);
     setPhoneNumber(input);
   };
 
   const handleSubmit = () => {
-    if (name.trim().length < 2) {
-      alert("Пожалуйста, введите имя.");
-      return;
-    }
-
+    if (name.trim().length < 2) return alert(t("enterName"));
     dispatch(sendFeedback({ name, phone_number: phoneNumber }));
   };
 
   useEffect(() => {
     if (success) {
-      alert("Спасибо! Мы с вами свяжемся.");
+      alert(t("thanksFeedback"));
       setName("");
       setPhoneNumber("+996");
       dispatch(resetFeedback());
     }
-
     if (error) {
-      alert("Ошибка при отправке: " + error);
+      alert(`${t("errorSending")}: ${error}`);
       dispatch(resetFeedback());
     }
-  }, [success, error, dispatch]);
+  }, [success, error, dispatch, t]);
 
   return (
     <div className='footer'>
       <div className='text'>
-        <h2>Контакты и обратная связь</h2>
-        <p>Остались вопросы? Свяжись с нами!</p>
+        <h2>{t("ContactsFeedback")}</h2>
+        <p>{t("ContactsText")}</p>
       </div>
 
       <div className="contact-list">
         <div className="contact-item">
-          <img src={location} alt="Адрес" className="contact-icon" />
-          <p>Турусбекова 109/1</p>
+          <img src={location} alt={t("address")} className="contact-icon" />
+          <p>{t("address")}</p>
         </div>
         <div className="contact-item">
           <img src={mess} alt="Email" className="contact-icon" />
           <p>heartvibevolonteers@gmail.com</p>
         </div>
         <div className="contact-item">
-          <img src={phone} alt="Телефон" className="contact-icon" />
+          <img src={phone} alt={t("phone")} className="contact-icon" />
           <p>+996 501 30 10 05</p>
         </div>
         <div className="contact-item">
@@ -81,7 +76,7 @@ function Footer() {
           <div className="input-group">
             <FaPhone className="input-icon" />
             <div className="input-with-icon">
-              <label htmlFor="phone">Номер телефона</label>
+              <label htmlFor="phone">{t("PhoneNumber")}</label>
               <input
                 type="tel"
                 id="phone"
@@ -95,12 +90,12 @@ function Footer() {
           <div className="input-group">
             <FaUser className="input-icon" />
             <div className="input-with-icon">
-              <label htmlFor="name">Как к вам обращаться?</label>
+              <label htmlFor="name">{t("YourName")}</label>
               <input
                 type="text"
                 id="name"
                 className="custom-input"
-                placeholder="ФИО"
+                placeholder={t("fullName")}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -108,10 +103,10 @@ function Footer() {
           </div>
 
           <button className="submit-btn" onClick={handleSubmit} disabled={loading}>
-            {loading ? "Отправка..." : "Отправить"}
+            {loading ? t("sending") : t("Submit")}
           </button>
 
-          <p>Нажимая “Отправить”, вы соглашаетесь с обработкой ваших личных данных</p>
+          <p>{t("PrivacyPolicy")}</p>
         </div>
       </div>
     </div>
