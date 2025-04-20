@@ -1,63 +1,75 @@
 .list {
+  display: flex;
+  flex-direction: column;
+
+  .text {
     display: flex;
-    flex-direction: column;
-    
-    .text {
-        display: flex;
-      justify-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      color: rgb(26, 26, 26);
+      font-family: Rubik;
+      font-size: 36px;
+      font-weight: 600;
+      line-height: 110%;
+      letter-spacing: -1%;
+    }
+
+    p {
+      display: flex;
       align-items: center;
-      margin-bottom: 20px;
-  
-      h2 {
-        color: rgb(26, 26, 26);
-        font-family: Rubik;
-        font-size: 36px;
-        font-weight: 600;
-        line-height: 110%;
-        letter-spacing: -1%;
-      }
-      
-      p {
+      gap: 8px;
+
+      a.link {
+        text-decoration: none;
+        color: rgb(52, 168, 83);
+     /* desktop/link [semibold] */
+color: rgb(52, 168, 83);
+font-family: Roboto;
+font-size: 15px;
+font-weight: 600;
+line-height: 120%;
+letter-spacing: -1%;
+text-align: left;
         display: flex;
         align-items: center;
         gap: 8px;
-        color: rgb(52, 168, 83);
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 600;
-        line-height: 120%;
-        letter-spacing: -1%;
-  
+
+        &:hover {
+          text-decoration: underline;
+        }
         img {
-            width: 20px;
+          width: 20px;
           height: 20px;
         }
       }
     }
-    
-    .scroll-wrapper {
-      overflow-x: auto;
-      padding-bottom: 10px;
-      scrollbar-width: none; // Firefox
-      -ms-overflow-style: none; // IE/Edge
-  
-      &::-webkit-scrollbar {
-        display: none; // Chrome
-      }
-    }
-    
-    .scroll-inside {
-        display: flex;
-      gap: 60px;
-      scroll-snap-type: x mandatory;
-      padding: 10px 0;
-      min-width: max-content;
-    }
-  
-    .scroll-card {
-      flex: 0 0 auto;
-      scroll-snap-align: start;
-      width: 400px; // ширина одной карточки, можно подогнать
+  }
+
+  .scroll-wrapper {
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE/Edge
+
+    &::-webkit-scrollbar {
+      display: none; // Chrome
     }
   }
-  
+
+  .scroll-inside {
+    display: flex;
+    gap: 60px;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+    min-width: max-content;
+  }
+
+  .scroll-card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 400px;
+  }
+}
