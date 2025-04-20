@@ -32,12 +32,12 @@ function EventsList() {
     <div className='list'>
       <div className='text'>
         <h2>Ближайшие мероприятия</h2>
-        <Link to="/all-events">
-          <p>
+        <p>
+          <Link to="/all-events" className="link">
             Все мероприятия
             <img src={right} alt="Right arrow" />
-          </p>
-        </Link>
+          </Link>
+        </p>
       </div>
 
       <div className='scroll-wrapper'>
