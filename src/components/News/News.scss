@@ -83,7 +83,7 @@
     }
 
     > * {
-      flex: 0 0 440px; // Фиксированная ширина карточки
+      flex: 0 0 440px; 
       scroll-snap-align: start;
     }
   }
