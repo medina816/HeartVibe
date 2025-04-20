@@ -21,7 +21,7 @@ function Home() {
       <HowToBecomeAVolunteer/>
       <News/>
    </div>
-  </div>
+
   )
 }
 
