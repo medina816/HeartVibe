@@ -23,9 +23,9 @@ function AllNews() {
     if (!news || news.length === 0) return <p>Нет доступных новостей.</p>;
 
     return (
-        <section className="Newscontainer">
+        <section className="news-section">
             <h1 className='newsH1'>Новости</h1>
-            <div className="NewsCardGrid"> 
+            <div className="news-grid"> 
                 {news.map((item) => (
                     <NewsCard key={item.id} data={item} />
                 ))}
