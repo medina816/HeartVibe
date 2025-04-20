@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchTeams} from "../../app/store/team/teamSlice";
+import { useTranslation } from "react-i18next";
 
 import volonteers from "../../assets/image/volonteers.png";
 import lifes from "../../assets/image/lifes.png";
@@ -15,6 +16,7 @@ import {Navigation, Pagination} from 'swiper/modules';
 import {FaTimes} from "react-icons/fa";
 
 function Club() {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const {teams, status, error} = useSelector((state) => state.teams);
     const [modalOpen, setModalOpen] = useState(false);
@@ -37,70 +39,59 @@ function Club() {
     return (
         <div className="club-container">
             <div className="about-club">
-                <h2>О клубе</h2>
+                <h2>{t("aboutClub")}</h2>
                 <div className="text1">
-                    <h3>Наша миссия</h3>
-                    <p>
-                        Наш проект создан, чтобы объединить людей, готовых помогать другим, и тех, кто нуждается в
-                        поддержке. Мы верим, что каждый может внести вклад в общество — будь то забота о детях, помощь
-                        пожилым людям, защита окружающей среды или поддержка животных. </p>
+                    <h3>{t("ourMission")}</h3>
+                    <p>{t("missionText")}</p>
                 </div>
             </div>
 
             <div className="background">
-                <img src={lifes} alt="lifes" className="lifes"/>
-                <img src={volonteers} alt="volunteers" className="volonteers"/>
+                <img src={lifes} alt={t("livesAlt")} className="lifes"/>
+                <img src={volonteers} alt={t("volunteersAlt")} className="volonteers"/>
                 <button className="btn1">
-                    Развивать культуру <br/> добрых дел в обществе
+                    {t("goal1")}
                 </button>
                 <button className="btn2">
-                    Создавать новые проекты, которые <br/> действительно меняют мир.
+                    {t("goal2")}
                 </button>
-                <button className="btn3">Сделать волонтёрство <br/> доступным каждому</button>
+                <button className="btn3">{t("goal3")}</button>
                 <button className="btn4">
-                    Поддерживать волонтёров и организации,<br/> предоставляя им платформу<br/>
-                    для взаимодействия.
+                    {t("goal4")}
                 </button>
             </div>
 
             <div className="card1">
-                <img src={card1} alt="card1"/>
+                <img src={card1} alt={t("historyCardAlt")}/>
                 <div className="txt">
                     <div>
-                        <h2>История создания</h2>
-                        <p>Идея создания нашего проекта родилась из простого желания помочь. Мы начали с небольших
-                            инициатив: сбор одежды для нуждающихся, экологические акции, бесплатные образовательные
-                            курсы. Со временем количество желающих участвовать росло, и стало ясно — нужен удобный
-                            сервис, объединяющий волонтёров и тех, кому нужна помощь.</p>
+                        <h2>{t("creationHistory")}</h2>
+                        <p>{t("historyText1")}</p>
                     </div>
                 </div>
             </div>
 
             <div className="card2">
-                <img src={card2} alt="card2"/>
+                <img src={card2} alt={t("platformCardAlt")}/>
                 <div className="txt2">
                     <div>
-                        <h2>История создания</h2>
-                        <p>
-                            Так появилась наша платформа — место, где каждый может найти проект по душе, получить
-                            поддержку и стать частью чего-то большего. Сегодня мы продолжаем развиваться, расширяем
-                            список программ и помогаем всё большему количеству людей.
-                        </p>
+                        <h2>{t("platformDevelopment")}</h2>
+                        <p>{t("historyText2")}</p>
                     </div>
                 </div>
             </div>
 
             <div className="bottom-part">
-                <h2>Наша команда</h2>
+                <h2>{t("ourTeam")}</h2>
                 <div className="out">
-                    {status === "loading" && <p>Загрузка...</p>}
-                    {status === "failed" && <p>Ошибка: {error}</p>}
+                    {status === "loading" && <p>{t("loading")}</p>}
+                    {status === "failed" && <p>{t("error")}: {error}</p>}
                     {status === "succeeded" && teams.length > 0 && (
                         <Swiper
                             slidesPerView={1}
-                            loop={true} // Зацикливание слайдов
+                            loop={true}
                             autoplay={{
-                                delay: 2500, // Автопрокрутка слайдов
+                                delay: 2500,
                                 disableOnInteraction: false,
                             }}
                             breakpoints={{
@@ -108,13 +99,12 @@ function Club() {
                                 768: {slidesPerView: 2},
                                 1024: {slidesPerView: 4},
                             }}
-
                         >
                             {teams.map((member) => (
                                 <SwiperSlide key={member.id}>
                                     <div
                                         className="members"
-                                        onClick={() => handleCardClick(member)} // Используем onClick
+                                        onClick={() => handleCardClick(member)}
                                     >
                                         <div>
                                             <img
@@ -153,7 +143,6 @@ function Club() {
                     </div>
                 )}
             </div>
-
         </div>
     );
 }
