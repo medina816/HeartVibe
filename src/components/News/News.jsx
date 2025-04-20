@@ -14,22 +14,22 @@ function News() {
     dispatch(fetchNews());
   }, [dispatch]);
 
-  if (status === "loading") return <div className="news-loading">Загрузка...</div>;
-  if (status === "failed") return <div className="news-error">Ошибка: {error}</div>;
+  if (status === "loading") return <p>Загрузка...</p>;
+  if (status === "failed") return <p>Ошибка: {error}</p>;
 
   return (
-    <section className="news-section">
-      <div className="news-header">
-        <h1 className="news-title">Новости</h1>
-        <Link to="all-News" className="news-all-link">
-          <span>Все новости</span>
+    <section className="Newscontainer">
+      <div className="newsTitle">
+        <h1>Новости</h1>
+        <div className="AllReviewsGrid">
+          <h6 className="AllReviews"><Link to="all-News">Все новости
+          </Link></h6>
           <img src={arrowRight} alt="Стрелка вправо" />
-        </Link>
+        </div>
       </div>
-      
-      <div className="news-grid">   
-        {news.slice(0, 3).map((item) => (
-          <NewsCard key={item.id} data={item} />
+      <div className="NewsCardGrid">
+        {news.slice(0, 6).map((news) => (
+          <NewsCard key={news.id} data={news}/>
         ))}
       </div>
     </section>

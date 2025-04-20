@@ -1,36 +1,45 @@
-.news-section {
+.Newscontainer {
   max-width: 1360px;
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow: hidden;
+
   @media (max-width: 1024px) {
-    max-width: 768px;
-    width: 100%;
-    
+    padding: 0 16px;
   }
 
   @media (max-width: 768px) {
-    max-width: 360px;
-    width: 100%;
+    padding: 0 12px;
   }
 
-  .news-header {
+  .newsTitle {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 24px;
 
-    .news-title {
-      font: 600 36px/1.1 'Rubik', sans-serif;
+    h1 {
+      font-family: Rubik, sans-serif;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 110%;
+      letter-spacing: -1%;
       margin: 0;
+
+      @media (max-width: 1024px) {
+        font-size: 32px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 28px;
+      }
     }
 
-    .news-all-link {
+    .AllReviewsGrid {
       display: flex;
       align-items: center;
       gap: 8px;
-      text-decoration: none;
-      color: #34A853;
-      font: 500 16px/1 'Roboto', sans-serif;
 
       .AllReviews {
         font-size: 16px;
@@ -49,35 +58,33 @@
       img {
         width: 16px;
         height: 16px;
-     &:hover {
-        opacity: 0.9;
       }
     }
   }
 
-  .news-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .NewsCardGrid {
+    display: flex;
     gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
 
-    @media (max-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
+    &::-webkit-scrollbar {
+      height: 6px;
     }
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
+
+    > * {
+      flex: 0 0 440px; 
+      scroll-snap-align: start;
     }
   }
-}
-
-.news-loading,
-.news-error {
-  text-align: center;
-  padding: 20px;
-  font: 16px/1.5 'Roboto', sans-serif;
-}
-
-.news-error {
-  color: #d32f2f;
-} 
 }
