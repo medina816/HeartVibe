@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Card from '../../components/Card/Card';
 import './categoryPage.scss';
-import { fetchEvents } from '../../app/store/eventss/eventsSlice';
-import { fetchCategories } from '../../app/store/eventss/eventsSlice';
+import { fetchEvents, fetchCategories } from '../../app/store/eventss/eventsSlice';
+import { BiCategoryAlt } from "react-icons/bi";
 
 function CategoryPage() {
   const dispatch = useDispatch();
@@ -37,7 +37,10 @@ function CategoryPage() {
 
   return (
     <div className="category-page">
-      <h2>{category ? category.name : 'Категория'}</h2>
+      <div className="category-title">
+        <BiCategoryAlt className="category-icon" />
+        <h2>{category ? category.name : 'Категория'}</h2>
+      </div>
 
       {filteredEvents.length > 0 ? (
         <div className="events-list">

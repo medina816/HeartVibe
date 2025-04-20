@@ -32,7 +32,24 @@
       color: #34A853;
       font: 500 16px/1 'Roboto', sans-serif;
 
-      &:hover {
+      .AllReviews {
+        font-size: 16px;
+        font-weight: 500;
+
+        a {
+          text-decoration: none;
+          color:  rgb(52, 168, 83);
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      img {
+        width: 16px;
+        height: 16px;
+     &:hover {
         opacity: 0.9;
       }
     }
