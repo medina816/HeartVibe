@@ -5,31 +5,32 @@ import NewsCard from "../Card/newsCard/NewsCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../../app/store/new/NewsSlice";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function News() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { news, status, error } = useSelector((state) => state.news);
 
   React.useEffect(() => {
     dispatch(fetchNews());
   }, [dispatch]);
 
-  if (status === "loading") return <p>Загрузка...</p>;
-  if (status === "failed") return <p>Ошибка: {error}</p>;
+  if (status === "loading") return <div className="news-loading">{t("loading")}</div>;
+  if (status === "failed") return <div className="news-error">{t("error")}: {error}</div>;
 
   return (
-    <section className="Newscontainer">
-      <div className="newsTitle">
-        <h1>Новости</h1>
-        <div className="AllReviewsGrid">
-          <h6 className="AllReviews"><Link to="all-News">Все новости
-          </Link></h6>
-          <img src={arrowRight} alt="Стрелка вправо" />
-        </div>
+    <section className="news-section">
+      <div className="news-header">
+        <h1 className="news-title">{t("News")}</h1>
+        <Link to="all-News" className="news-all-link">
+          <span>{t("AllNews")}</span>
+          <img src={arrowRight} alt="→" />
+        </Link>
       </div>
-      <div className="NewsCardGrid">
-        {news.slice(0, 6).map((news) => (
-          <NewsCard key={news.id} data={news}/>
+      <div className="news-grid">
+        {news.slice(0, 6).map((item) => (
+          <NewsCard key={item.id} data={item} />
         ))}
       </div>
     </section>
