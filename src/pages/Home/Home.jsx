@@ -14,9 +14,9 @@ function Home() {
       {/* <FeedbackFromVolunteers/> */}
       <GoodDeedsStartWithYou/>
       <SecondBlock/>
-      <Card/>
-      <EventsList/>
-      <News/>
+      {/*<Card/>*/}
+      {/*<EventsList/>*/}
+      {/*<News/>*/}
       <FeedbackFromVolunteers/>
       <HowToBecomeAVolunteer/>
    </div>

@@ -1,66 +1,75 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { FaFirefox } from "react-icons/fa";
 import calendar from "../../assets/new/svg/calendar.svg";
 import locationIcon from "../../assets/svg/location.svg";
 import dateIcon from "../../assets/svg/date.svg";
-import { Link } from "react-router-dom";
-import { FaFirefox } from "react-icons/fa"; // иконка, пока как пример
 import "./Card.scss";
 
-function Card({ event }) {
-  if (!event) return null;
+function Card({ event, getLocalizedText }) {
+    const { t } = useTranslation();
 
-  const {id, image, title, date, description, location, category } = event;
+    if (!event) return null;
 
-  const formattedDate = date ? new Date(date).toLocaleDateString() : 'Дата неизвестна';
-  const categoryName = category?.name || 'Без категории';
-  const categoryId = category?.id || null;
-  const eventLocation = location || 'Локация неизвестна';
+    // Локализация данных
+    const formattedDate = event.date
+        ? new Date(event.date).toLocaleDateString(t('date_locale'))
+        : t('date_unknown');
 
-  return (
-    <div className="Card">
-      <div className="CardImage">
-        <img src={image || '/assets/svg/event.png'} alt={title || 'Событие'} />
+    const title = getLocalizedText(event.title) || t('no_title');
+    const description = getLocalizedText(event.description) || t('no_description');
+    const location = getLocalizedText(event.location) || t('location_unknown');
+    const categoryName = getLocalizedText(event.category?.name) || t('no_category');
 
-        {/* Кнопка даты */}
-        <button className="btn">
-          <img src={dateIcon} alt="Дата" />
-          {formattedDate}
-        </button>
+    return (
+        <div className="Card">
+            <div className="CardImage">
+                <img
+                    src={event.image || '/assets/svg/event.png'}
+                    alt={title}
+                />
 
-        {/* Переход по категории */}
-        {categoryId && (
-          <Link to={`/category/${categoryId}`}>
-            <button className="btn2">
-              <FaFirefox style={{ color: '#34a853' }} />
-              {categoryName}
-            </button>
-          </Link>
-        )}
-      </div>
+                {/* Кнопка даты */}
+                <button className="btn">
+                    <img src={dateIcon} alt={t('date')} />
+                    {formattedDate}
+                </button>
 
-      <div className="CardTextContent">
-        <div className="dataContainer">
-          <img src={calendar} alt="Календарь" />
-          <p className="data">{formattedDate}</p>
+                {/* Переход по категории */}
+                {event.category?.id && (
+                    <Link to={`/category/${event.category.id}`}>
+                        <button className="btn2">
+                            <FaFirefox style={{ color: '#34a853' }} />
+                            {categoryName}
+                        </button>
+                    </Link>
+                )}
+            </div>
+
+            <div className="CardTextContent">
+                <div className="dataContainer">
+                    <img src={calendar} alt={t('calendar')} />
+                    <p className="data">{formattedDate}</p>
+                </div>
+
+                <h3 className="title">{title}</h3>
+                <p className="content">{description}</p>
+
+                <div className="locationContainer">
+                    <img src={locationIcon} alt={t('location')} />
+                    <span>{location}</span>
+                </div>
+
+                <div className="group-btn">
+                    <button className="btn3">{t('sign_up')}</button>
+                    <Link to={`/event/${event.id}`}>
+                        <button className="btn4">{t('details')}</button>
+                    </Link>
+                </div>
+            </div>
         </div>
-
-        <h3 className="title">{title || 'Без названия'}</h3>
-        <p className="content">{description || 'Описание отсутствует'}</p>
-
-        <div className="locationContainer">
-          <img src={locationIcon} alt="Локация" />
-          <span>{eventLocation}</span>
-        </div>
-
-        <div className="group-btn">
-          <button className="btn3">Записаться</button>
-          <Link to={"/event/"+id}>
-            <button className="btn4">Подробнее</button>
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default Card;

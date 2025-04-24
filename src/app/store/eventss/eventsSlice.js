@@ -2,21 +2,46 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import apiClient from '../../services/apiClient';
 
 // Асинхронные экшены
-export const fetchEvents = createAsyncThunk('events/fetchEvents', async () => {
-    const response = await apiClient.get('events');
-    return response.data;
-});
+export const fetchEvents = createAsyncThunk(
+    'events/fetchEvents',
+    async (_, { getState, rejectWithValue }) => {
+        try {
+            const lang = getState().language.currentLanguage;
+            const response = await apiClient.get(`events?lang=${lang}`);
+            return response.data;
+        } catch (error) {
+            const message = error.response?.data?.message || error.message || 'Не удалось загрузить события';
+            return rejectWithValue(message);
+        }
+    }
+);
 
-export const fetchCategories = createAsyncThunk('categories/fetchCategories', async () => {
-    const response = await apiClient.get('/events-categories');
-    return response.data;
-});
+export const fetchCategories = createAsyncThunk(
+    'categories/fetchCategories',
+    async (_, { getState, rejectWithValue }) => {
+        try {
+            const lang = getState().language.currentLanguage;
+            const response = await apiClient.get(`/events-categories?lang=${lang}`);
+            return response.data;
+        } catch (error) {
+            const message = error.response?.data?.message || error.message || 'Не удалось загрузить категории';
+            return rejectWithValue(message);
+        }
+    }
+);
+
 
 export const fetchSingleEvent = createAsyncThunk(
     'events/fetchSingleEvent',
-    async (id) => {
-        const response = await apiClient.get(`events/${id}`);
-        return response.data;
+    async ({ id, lang }, { rejectWithValue }) => {
+        try {
+            const response = await apiClient.get(`events/${id}`, {
+                params: { lang }
+            });
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error.response?.data?.message || error.message);
+        }
     }
 );
 
