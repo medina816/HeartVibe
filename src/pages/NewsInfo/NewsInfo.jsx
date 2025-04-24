@@ -61,7 +61,7 @@ function NewsInfo() {
                     <>
                         <h2>Похожие новости</h2>
                         <Swiper
-                            spaceBetween={20}
+                            spaceBetween={30}
                             slidesPerView={3}
                             pagination={{clickable: true}}
                             style={{paddingBottom: '30px'}}
