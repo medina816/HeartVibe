@@ -9,7 +9,7 @@ import "./Card.scss";
 function Card({ event }) {
   if (!event) return null;
 
-  const { image, title, date, description, location, category } = event;
+  const {id, image, title, date, description, location, category } = event;
 
   const formattedDate = date ? new Date(date).toLocaleDateString() : 'Дата неизвестна';
   const categoryName = category?.name || 'Без категории';
@@ -54,7 +54,7 @@ function Card({ event }) {
 
         <div className="group-btn">
           <button className="btn3">Записаться</button>
-          <Link to="/event">
+          <Link to={"/event/"+id}>
             <button className="btn4">Подробнее</button>
           </Link>
         </div>
