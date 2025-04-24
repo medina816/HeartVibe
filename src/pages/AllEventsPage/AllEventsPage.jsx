@@ -23,12 +23,9 @@ function AllEventsPage() {
     };
 
     useEffect(() => {
-        // Загружаем данные с учетом текущего языка
         dispatch(fetchEvents());
-        if (categories.length === 0) {
-            dispatch(fetchCategories());
-        }
-    }, [dispatch, currentLanguage]); // Зависимость от currentLanguage
+        dispatch(fetchCategories());
+    }, [dispatch, currentLanguage]);
 
     if (eventsStatus === 'loading' || categoriesStatus === 'loading') {
         return <p>{t('loading')}</p>;
@@ -61,8 +58,6 @@ function AllEventsPage() {
                     ))}
                 </div>
             </div>
-
-            {/* Карточки мероприятий */}
             <div className="inside">
                 {events.map((event) => (
                     <Card
