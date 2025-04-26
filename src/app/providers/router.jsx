@@ -8,6 +8,7 @@ import NewsInfo from "../../pages/NewsInfo/NewsInfo";
 import AllNews from "../../pages/AllNews/AllNews";
 import CategoryPage from "../../pages/CategoryPage/CategoryPage";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
+import LeaveFeedBack from "../../components/LeaveFeedBack/LeaveFeedBack";
 export const myRouter = createBrowserRouter([
     {
         path: "/",
@@ -22,6 +23,7 @@ export const myRouter = createBrowserRouter([
             {path: '/category/:categoryId', element: <CategoryPage/>},
             {path:"/news/:id", element:<NewsInfo />},
             {path:"*", element:<NotFoundPage />},
+            {path: "FB", element: <LeaveFeedBack/>},
         ]
     },
 

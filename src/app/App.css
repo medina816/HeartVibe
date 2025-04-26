@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 #root {
   margin: 0 auto;
   padding: 0;
@@ -48,3 +51,4 @@ ul {
   border: 2px solid red;
   margin: 0 auto;
 }
+

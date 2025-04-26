@@ -1,60 +1,23 @@
-import React from 'react'
-import "./FeedbackFromVolunteers.scss"
-import arrowRight from "../../assets/FeedbackFromVolunteers/svg/arrowRight.svg"
+import React, { useEffect } from 'react';
+import "./FeedbackFromVolunteers.scss";
+import arrowRight from "../../assets/FeedbackFromVolunteers/svg/arrowRight.svg";
 import FeedbackFromVolunteersCard from '../Card/FeedbackFromVolunteersCard/FeedbackFromVolunteersCard';
-import bolot from "../../assets/FeedbackFromVolunteers/image/Bolot.png"
-import rating from "../../assets/FeedbackFromVolunteers/svg/Rating.svg";
-import add from "../../assets/FeedbackFromVolunteers//svg/add.svg"
+import add from "../../assets/FeedbackFromVolunteers/svg/add.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchReviews } from '../../app/store/reviews/reviewSlice';
+import { Link } from 'react-router-dom';
 
-const reviews = [
-  {
-    id: 1,
-    name: "Болот, 23 года",
-    avatar: bolot,
-    rating: rating,
-    reviewsText:
-      '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
-    date: "5 мая 2024",
-  },
-  {
-    id: 1,
-    name: "Болот, 23 года",
-    avatar: bolot,
-    rating: rating,
-    reviewsText:
-      '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
-    date: "5 мая 2024",
-  },
-  {
-    id: 1,
-    name: "Болот, 23 года",
-    avatar: bolot,
-    rating: rating,
-    reviewsText:
-      '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
-    date: "5 мая 2024",
-  },
-  {
-    id: 1,
-    name: "Болот, 23 года",
-    avatar: bolot,
-    rating: rating,
-    reviewsText:
-      '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
-    date: "5 мая 2024",
-  },
-  {
-    id: 1,
-    name: "Болот, 23 года",
-    avatar: bolot,
-    rating: rating,
-    reviewsText:
-      '"Участвовать в проектах HeartVibe — одно из лучших решений в моей жизни! Столько эмоций, новых знакомств и добра!"',
-    date: "5 мая 2024",
-  },
-
-];
 function FeedbackFromVolunteers() {
+  const dispatch = useDispatch();
+  const { reviews, status, error } = useSelector((state) => state.reviews);
+
+  useEffect(() => {
+    dispatch(fetchReviews());
+  }, [dispatch]);
+
+  if (status === "loading") return <p>Загрузка отзывов...</p>;
+  if (status === "failed") return <p>Ошибка: {error}</p>;
+
   return (
     <section>
       <div className='container'>
@@ -66,17 +29,26 @@ function FeedbackFromVolunteers() {
           </div>
         </div>
         <div className='FeedbackFromVolunteersCardsGrid'>
-          {reviews.map((review) => (
-            <FeedbackFromVolunteersCard key={review.id} review={review} />
+          {reviews.slice(0, 5).map((review) => (
+            <FeedbackFromVolunteersCard key={review.id} review={{
+              id: review.id,
+              name: review.author,
+              avatar: review.avatar,
+              rating: review.rating,
+              reviewsText: `${review.text}`,
+              date: new Date(review.created_at).toLocaleDateString('ru-RU'),
+            }} />
           ))}
+          <Link to='/fb'>
           <div className='LeaveFeedback'>
-          <h3>Оставить отзыв</h3>
-          <img src={add} alt="" />
+            <h3>Оставить отзыв</h3>
+            <img src={add} alt="" />
           </div>
+          </Link>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default FeedbackFromVolunteers
+export default FeedbackFromVolunteers;  
