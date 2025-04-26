@@ -16,24 +16,30 @@ function News() {
     dispatch(fetchNews());
   }, [dispatch]);
 
-  if (status === "loading") return <div className="news-loading">{t("loading")}</div>;
-  if (status === "failed") return <div className="news-error">{t("error")}: {error}</div>;
+  if (status === "loading") return <p>{t("loading")}</p>;
+  if (status === "failed") return <p>{t("error")}: {error}</p>;
 
   return (
-    <section className="news-section">
-      <div className="news-header">
-        <h1 className="news-title">{t("News")}</h1>
-        <Link to="all-News" className="news-all-link">
-          <span>{t("AllNews")}</span>
-          <img src={arrowRight} alt="→" />
+    <div className="news">
+      <div className="text">
+        <h2>{t("News")}</h2>
+        <Link to="/all-News">
+          <p>
+            {t("AllNews")}
+            <img src={arrowRight} alt="→" />
+          </p>
         </Link>
       </div>
-      <div className="news-grid">
-        {news.slice(0, 6).map((item) => (
-          <NewsCard key={item.id} data={item} />
-        ))}
+      <div className="scroll-wrapper">
+        <div className="scroll-inside">
+          {news.slice(0, 6).map((item) => (
+            <div className="scroll-card" key={item.id}>
+              <NewsCard data={item} />
+            </div>
+          ))}
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
 

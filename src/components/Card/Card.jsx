@@ -7,12 +7,17 @@ import locationIcon from "../../assets/svg/location.svg";
 import dateIcon from "../../assets/svg/date.svg";
 import "./Card.scss";
 
-function Card({ event, getLocalizedText }) {
-    const { t } = useTranslation();
+function Card({ event }) {
+    const { t, i18n } = useTranslation();
 
     if (!event) return null;
 
-    // Локализация данных
+    // Локализация текстов
+    const getLocalizedText = (field) => {
+        if (!field) return '';
+        return field[i18n.language] || field['en'] || '';
+    };
+
     const formattedDate = event.date
         ? new Date(event.date).toLocaleDateString(t('date_locale'))
         : t('date_unknown');
@@ -30,13 +35,13 @@ function Card({ event, getLocalizedText }) {
                     alt={title}
                 />
 
-                {/* Кнопка даты */}
+                {/* Кнопка с датой на изображении */}
                 <button className="btn">
                     <img src={dateIcon} alt={t('date')} />
                     {formattedDate}
                 </button>
 
-                {/* Переход по категории */}
+                {/* Кнопка перехода по категории */}
                 {event.category?.id && (
                     <Link to={`/category/${event.category.id}`}>
                         <button className="btn2">
@@ -48,17 +53,19 @@ function Card({ event, getLocalizedText }) {
             </div>
 
             <div className="CardTextContent">
-                <div className="dataContainer">
-                    <img src={calendar} alt={t('calendar')} />
-                    <p className="data">{formattedDate}</p>
-                </div>
-
                 <h3 className="title">{title}</h3>
                 <p className="content">{description}</p>
 
-                <div className="locationContainer">
-                    <img src={locationIcon} alt={t('location')} />
-                    <span>{location}</span>
+                <div className="infoContainer">
+                    <div className="dataContainer">
+                        <img src={calendar} alt={t('calendar')} />
+                        <p className="data">{formattedDate}</p>
+                    </div>
+
+                    <div className="locationContainer">
+                        <img src={locationIcon} alt={t('location')} />
+                        <span>{location}</span>
+                    </div>
                 </div>
 
                 <div className="group-btn">
