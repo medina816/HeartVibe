@@ -1,90 +1,69 @@
-.Newscontainer {
-  max-width: 1360px;
-  width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
-  overflow: hidden;
+.news {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
 
-  @media (max-width: 1024px) {
-    padding: 0 16px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0 12px;
-  }
-
-  .newsTitle {
+  .text {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    margin-bottom: 24px;
+    align-items: center;
+    margin-bottom: 20px;
 
-    h1 {
+    h2 {
+      color: rgb(26, 26, 26);
       font-family: Rubik, sans-serif;
-      font-weight: 600;
       font-size: 36px;
+      font-weight: 600;
       line-height: 110%;
       letter-spacing: -1%;
       margin: 0;
-
-      @media (max-width: 1024px) {
-        font-size: 32px;
-      }
-
-      @media (max-width: 768px) {
-        font-size: 28px;
-      }
     }
 
-    .AllReviewsGrid {
+    p {
       display: flex;
       align-items: center;
       gap: 8px;
+      font-family: Roboto, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 120%;
+      color: rgb(52, 168, 83);
+      text-decoration: none;
+      cursor: pointer;
 
-      .AllReviews {
-        font-size: 16px;
-        font-weight: 500;
-
-        a {
-          text-decoration: none;
-          color:  rgb(52, 168, 83);
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
+      &:hover {
+        text-decoration: underline;
       }
 
       img {
-        width: 16px;
-        height: 16px;
+        width: 20px;
+        height: 20px;
       }
     }
   }
 
-  .NewsCardGrid {
-    display: flex;
-    gap: 20px;
+  .scroll-wrapper {
     overflow-x: auto;
     padding-bottom: 10px;
-    scroll-snap-type: x mandatory;
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE/Edge
 
     &::-webkit-scrollbar {
-      height: 6px;
+      display: none; // Chrome
     }
+  }
 
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
+  .scroll-inside {
+    display: flex;
+    gap: 60px;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+    min-width: max-content;
+  }
 
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.2);
-      border-radius: 3px;
-    }
-
-    > * {
-      flex: 0 0 440px; 
-      scroll-snap-align: start;
-    }
+  .scroll-card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 400px; 
   }
 }
