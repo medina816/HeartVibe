@@ -1,0 +1,215 @@
+.countPages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  button {
+    background-color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Rubik', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+
+    &:active,
+    &:focus {
+      border-color: rgb(52, 168, 83);
+      background-color: black;
+      color: #fff;
+      outline: none;
+    }
+
+    &.active {
+      background-color: black;
+      color: white;
+      border-color: rgb(52, 168, 83);
+    }
+  }
+
+  button:first-child,
+  button:last-child {
+    background-color: rgb(52, 168, 83);
+
+    img {
+      width: 7.5px;
+      height: 10px;
+    }
+
+    &:hover {
+      background-color: darken(rgb(52, 168, 83), 5%);
+    }
+
+    &:active {
+      border-color: #fff;
+    }
+  }
+}
+
+.newFB {
+  border: 2px solid red;
+  width: 440px;
+  height: 618px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 80px;
+  padding: 16px;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+    font-family: Rubik;
+    line-height: 110%;
+  }
+
+  input {
+    padding-right: 40px;
+    width: 100%;
+    height: 74px;
+    border: 1.5px solid rgb(235, 235, 235);
+    border-radius: 16px;
+    padding-left: 16px;
+    font-size: 15px;
+    font-family: Roboto;
+
+    label {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 15px;
+      font-family: Roboto;
+      color: rgb(26, 26, 26);
+      transition: all 0.3s ease;
+    }
+
+  }
+
+  .inputWithIcon {
+    position: relative;
+
+    input {
+      padding-right: 40px;
+    }
+
+    img {
+      position: absolute;
+      left: 18px;
+      top: 27px;
+      width: 20.04px;
+      height: 20px;
+    }
+  }
+
+  .reviews {
+    height: 216px;
+  }
+
+  p {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: Roboto;
+  }
+
+  .text {
+    border: 2px solid red;
+
+    h3 {
+      font-size: 17px;
+      font-weight: 500;
+      font-family: Rubik;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      font-family: Roboto;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    height: 54px;
+    border: 2px solid red;
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+
+      h3 {
+        font-size: 15px;
+        font-family: Roboto;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      button {
+        width: 110px;
+        height: 38px;
+        border-radius: 100px;
+        background: rgb(52, 168, 83);
+        color: #fff;
+        font-size: 15px;
+        font-family: Roboto;
+        border: none;
+        cursor: pointer;
+      }
+
+      .delete {
+        width: 68px;
+        height: 38px;
+        background: rgba(52, 168, 83, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100px;
+
+        img {
+          width: 16.67px;
+          height: 16.67px;
+        }
+      }
+    }
+  }
+
+  > button {
+    height: 48px;
+    width: 100%;
+    border-radius: 100px;
+    background: rgb(52, 168, 83);
+    color: #fff;
+    font-size: 15px;
+    font-family: Roboto;
+    border: none;
+    cursor: pointer;
+  }
+}
