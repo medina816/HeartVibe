@@ -28,8 +28,8 @@ function News() {
           <img src={arrowRight} alt="→" />
         </Link>
       </div>
-      <div className="news-grid">   
-        {news.slice(0, 3).map((item) => (
+      <div className="news-grid">
+        {news.slice(0, 6).map((item) => (
           <NewsCard key={item.id} data={item} />
         ))}
       </div>

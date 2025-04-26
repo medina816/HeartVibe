@@ -8,6 +8,8 @@ import mess from '../../assets/svg/mess.svg';
 import phone from '../../assets/svg/phone.svg';
 import { FaWhatsapp, FaPhone, FaUser } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Footer() {
   const [phoneNumber, setPhoneNumber] = useState("+996");
@@ -24,19 +26,22 @@ function Footer() {
   };
 
   const handleSubmit = () => {
-    if (name.trim().length < 2) return alert(t("enterName"));
+    if (name.trim().length < 2) {
+      toast.error(t("enterName"));
+      return;
+    }
     dispatch(sendFeedback({ name, phone_number: phoneNumber }));
   };
 
   useEffect(() => {
     if (success) {
-      alert(t("thanksFeedback"));
+      toast.success(t("thanksFeedback"));
       setName("");
       setPhoneNumber("+996");
       dispatch(resetFeedback());
     }
     if (error) {
-      alert(`${t("errorSending")}: ${error}`);
+      toast.error(`${t("errorSending")}: ${error}`);
       dispatch(resetFeedback());
     }
   }, [success, error, dispatch, t]);
@@ -109,6 +114,8 @@ function Footer() {
           <p>{t("PrivacyPolicy")}</p>
         </div>
       </div>
+
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick />
     </div>
   );
 }
