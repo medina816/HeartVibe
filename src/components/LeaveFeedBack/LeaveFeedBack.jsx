@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReviews } from '../../app/store/reviewSlice/reviewSlice';
+import { fetchReviews } from '../../app/store/reviews/reviewSlice';
 import FeedbackFromVolunteersCard from '../Card/FeedbackFromVolunteersCard/FeedbackFromVolunteersCard';
 import VectorLeft from '../../assets/svg/vectorLeft.svg';
 import VectorRight from '../../assets/svg/vectorRight.svg';
@@ -15,6 +16,10 @@ function LeaveFeedBack() {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [pages, setPages] = useState([[...reviews]]);
+  const [pages, setPages] = useState([]);
+  const [feedbackText, setFeedbackText] = useState('');
+  const [selectedFile, setSelectedFile] = useState(null); // ДОБАВИЛИ состояние для выбранного файла
+
   const reviewsPerPage = 6;
 
   useEffect(() => {
@@ -46,6 +51,17 @@ function LeaveFeedBack() {
 
   const handlePageClick = (page) => {
     setCurrentPage(page);
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+    }
+  };
+
+  const handleDeleteFile = () => {
+    setSelectedFile(null);
   };
 
   return (
@@ -97,6 +113,23 @@ function LeaveFeedBack() {
         </div>
         <input type="text" placeholder="Отзыв" className="reviews" />
         <p>0/500</p>
+
+        <div className="inputWithIcon">
+          <input type="text" placeholder="Ваше имя" />
+          <p>имя</p>
+          <img src={phoneIcon} className="phone" alt="Телефон" />
+        </div>
+
+        <div className="reviews">
+          <textarea
+            placeholder="Ваш отзыв"
+            value={feedbackText}
+            onChange={(e) => setFeedbackText(e.target.value)}
+            maxLength={500}
+          />
+          <p>{feedbackText.length}/500</p>
+        </div>
+
         <div className="text">
           <h3>Выберите фото</h3>
           <p>
@@ -111,11 +144,31 @@ function LeaveFeedBack() {
           <div className="right">
             <button>Выбрать</button>
             <button className="delete">
+
+        <div className="bottom">
+          <div className="left">
+            <img src={docIcon} alt="Документ" />
+            <h3>{selectedFile ? selectedFile.name : 'Файл не выбран'}</h3> {/* тут имя файла */}
+          </div>
+
+          <div className="right">
+            {/* input type="file" спрятан */}
+            <input
+              id="fileInput"
+              type="file"
+              accept="image/jpeg, image/png"
+              style={{ display: 'none' }}
+              onChange={handleFileChange}
+            />
+            <button onClick={() => document.getElementById('fileInput').click()}>Выбрать</button>
+            <button className="delete" onClick={handleDeleteFile}>
               <img src={trashIcon} alt="Удалить" />
             </button>
           </div>
         </div>
         <button>Отправь</button>
+
+        <button>Отправить</button>
       </div>
     </div>
   );
