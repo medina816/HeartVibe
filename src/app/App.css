@@ -48,7 +48,7 @@ ul {
 }
 .wrapper {
   width: 1360px;
-  border: 2px solid red;
+  /*border: 2px solid red;*/
   margin: 0 auto;
 }
 

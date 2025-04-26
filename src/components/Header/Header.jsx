@@ -1,85 +1,80 @@
-import React, {useState, useEffect} from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/svg/logo.svg";
 import arrow from "../../assets/svg/arrow.svg";
-import {NavLink, Link} from "react-router-dom";
 import "./header.scss";
-import { useTranslation } from "react-i18next";
+import {setLanguage} from "../../app/store/languageSlice/languageSlice.js";
 
 function Header() {
+    const dispatch = useDispatch();
     const { t, i18n } = useTranslation();
-    const [activeLang, setActiveLang] = useState("RUS");
+    const currentLanguage = useSelector((state) => state.language.currentLanguage);
+
+    // Конфигурация языков
+    const languageConfig = {
+        ru: { label: "RUS", key: "RUS" },
+        ky: { label: "KYR", key: "KYR" },
+        en: { label: "ENG", key: "ENG" }
+    };
+    const activeLangKey = languageConfig[currentLanguage]?.key || "RUS";
 
     useEffect(() => {
-        const currentLang = i18n.language.toUpperCase();
-        setActiveLang(currentLang === "KG" ? "KYR" : currentLang === "RU" ? "RUS" : currentLang);
-    }, [i18n.language]);
+        i18n.changeLanguage(currentLanguage);
+    }, [currentLanguage, i18n]);
 
-    const changeLanguage = (language) => {
-        let lng;
-        switch(language) {
-            case "RUS": lng = "ru"; break;
-            case "KYR": lng = "kg"; break;
-            case "ENG": lng = "en"; break;
-            default: lng = "ru";
-        }
-        i18n.changeLanguage(lng);
+    const changeLanguage = (langCode) => {
+        dispatch(setLanguage(langCode));
     };
+
+    // Навигационные ссылки
+    const navLinks = [
+        { path: "/club", translationKey: "club" },
+        { path: "/all-events", translationKey: "events" },
+        { path: "/all-news", translationKey: "news" },
+        { path: "/all-reviews", translationKey: "reviews" }
+    ];
 
     return (
         <div className="header container">
-            <Link to=''>
-                <img className="first" src={logo} alt="Logo"/>
+            <Link to="/">
+                <img className="first" src={logo} alt="Logo" />
             </Link>
+
             <div className="inside">
                 <ul>
-                    <li>
-                        <NavLink
-                            to='/club'
-                            className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
-                        >
-                            {t("club")}
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to='/all-events'
-                            className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
-                        >
-                            {t("events")}
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to='/all-news'
-                            className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
-                        >
-                            {t("news")}
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink
-                            to='/all-reviews'
-                            className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
-                        >
-                            {t("reviews")}
-                        </NavLink>
-                    </li>
+                    {navLinks.map(({ path, translationKey }) => (
+                        <li key={path}>
+                            <NavLink
+                                to={path}
+                                className={({ isActive }) =>
+                                    isActive ? "nav-link active" : "nav-link"
+                                }
+                            >
+                                {t(translationKey)}
+                            </NavLink>
+                        </li>
+                    ))}
                 </ul>
+
                 <div className="btns">
                     <div className="lang">
-                        {["RUS", "KYR", "ENG"].map((lang) => (
+                        {Object.entries(languageConfig).map(([code, { label, key }]) => (
                             <button
-                                key={lang}
-                                onClick={() => changeLanguage(lang)}
-                                className={activeLang === lang ? "active" : ""}
+                                key={code}
+                                onClick={() => changeLanguage(code)}
+                                className={activeLangKey === key ? "active" : ""}
+                                aria-label={`Switch to ${label} language`}
                             >
-                                {lang}
+                                {label}
                             </button>
                         ))}
                     </div>
+
                     <button className="title-btn">
                         {t("login")}
-                        <img src={arrow} alt="Arrow"/>
+                        <img src={arrow} alt={t("arrow_alt") || "Arrow"} />
                     </button>
                 </div>
             </div>

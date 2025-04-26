@@ -9,6 +9,7 @@ import AllNews from "../../pages/AllNews/AllNews";
 import CategoryPage from "../../pages/CategoryPage/CategoryPage";
 import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 import LeaveFeedBack from "../../components/LeaveFeedBack/LeaveFeedBack";
+import EventInfo from "../../pages/EventInfo/EventInfo.jsx";
 export const myRouter = createBrowserRouter([
     {
         path: "/",
@@ -18,6 +19,8 @@ export const myRouter = createBrowserRouter([
             { path: "about", element: <About/> },
             {path: 'club', element: <Club/>}, 
             {path: '/all-events', element: <AllEventsPage/>},
+            {path: 'event', element: <EventInfo/>},
+            {path:"/event/:id", element:<EventInfo />},
             {path: 'news', element: <NewsInfo/>},
             {path: 'all-News', element: <AllNews/>},
             {path: '/category/:categoryId', element: <CategoryPage/>},

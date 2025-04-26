@@ -1,0 +1,124 @@
+.EventInfoContainer {
+  .EventInfo {
+    margin-top: 40px;
+    display: flex;
+    gap: 133px;
+
+    div:first-child {
+      .EventImage {
+        width: 670px;
+        height: 374px;
+        border-radius: 14px;
+      }
+
+      .date {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: rgba(26, 26, 26, 0.7);
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+
+        p {
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+          letter-spacing: -1%;
+          font-family: Rubik, serif;
+        }
+      }
+
+      .EventInfoTitle {
+        margin-top: 6px;
+        font-family: Rubik, sans-serif;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 110.00000000000001%;
+        letter-spacing: -1%;
+        color: rgba(26, 26, 26, 1);
+      }
+
+      .EventDescription {
+        margin-top: 6px;
+        font-family: Rubik, sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        letter-spacing: -1%;
+        color: rgba(26, 26, 26, 1);
+      }
+
+      .EventInfoDiv {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: -10px;
+
+        .icon {
+          width: 24px;
+          height: 24px;
+        }
+
+        p {
+          color: rgba(26, 26, 26, 1);
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 140%;
+          letter-spacing: -1%;
+          font-family: Rubik, serif;
+        }
+      }
+
+    }
+
+    div:last-child {
+      h2 {
+        font-family: Rubik, sans-serif;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 110.00000000000001%;
+        letter-spacing: -1%;
+
+      }
+
+      .btn-event {
+        gap: 4px;
+        border-radius: 100px;
+        padding: 12px 179px;
+        background: rgba(52, 168, 83, 1);
+        border: none;
+        outline: none;
+        font-family: Roboto, sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 120%;
+        letter-spacing: -1%;
+        color: white;
+        &:hover {
+          transform: scale(1.1);
+          background: rgb(32, 117, 55);
+        }
+      }
+      .EventNote{
+        max-width: 440px;
+        font-family: Roboto, sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 120%;
+        letter-spacing: -1%;
+        text-align: center;
+        color: rgba(26, 26, 26, 0.7);
+
+
+      }
+    }
+
+
+  }
+
+
+}

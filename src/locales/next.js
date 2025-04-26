@@ -1,22 +1,36 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import kg from "./kg/kg.json";
+import LanguageDetector from 'i18next-browser-languagedetector';
+import ky from "./kg/kg.json";
 import ru from "./ru/ru.json";
 import en from "./en/en.json";
+import {setLanguage} from "../app/store/languageSlice/languageSlice.js";
 
-i18n.use(initReactI18next).init({
-    resources: {
-        kg: {
-            translation: kg
+i18n
+    .use(LanguageDetector)
+    .use(initReactI18next)
+    .init({
+        resources: {
+            ky: { translation: ky },
+            en: { translation: en },
+            ru: { translation: ru }
         },
-        en: {
-            translation: en
+        fallbackLng: "ru",
+        detection: {
+            order: ['localStorage', 'navigator'],
+            caches: ['localStorage'],
+            lookupLocalStorage: 'selectedLanguage'
         },
-        ru: {
-            translation: ru
+        interpolation: {
+            escapeValue: false
         }
-    },
-    lng: "ru",
-});
+    });
+
+// Синхронизация с Redux store
+export const initializeI18n = (store) => {
+    i18n.on('languageChanged', (lng) => {
+        store.dispatch(setLanguage(lng));
+    });
+};
 
 export default i18n;
