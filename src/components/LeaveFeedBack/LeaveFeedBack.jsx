@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchReviews } from '../../app/store/reviewSlice/reviewSlice';
 import { fetchReviews } from '../../app/store/reviews/reviewSlice';
 import FeedbackFromVolunteersCard from '../Card/FeedbackFromVolunteersCard/FeedbackFromVolunteersCard';
 import VectorLeft from '../../assets/svg/vectorLeft.svg';
@@ -15,7 +14,6 @@ function LeaveFeedBack() {
   const { reviews, status, error } = useSelector((state) => state.reviews);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [pages, setPages] = useState([[...reviews]]);
   const [pages, setPages] = useState([]);
   const [feedbackText, setFeedbackText] = useState('');
   const [selectedFile, setSelectedFile] = useState(null); // ДОБАВИЛИ состояние для выбранного файла
@@ -106,13 +104,6 @@ function LeaveFeedBack() {
 
       <div className="newFB">
         <h1>Напишите отзыв</h1>
-        <div className="inputWithIcon">
-          <input type="text" id="name" required />
-          <label htmlFor="name">Имя</label>
-          <img src={phoneIcon} alt="иконка телефона" />
-        </div>
-        <input type="text" placeholder="Отзыв" className="reviews" />
-        <p>0/500</p>
 
         <div className="inputWithIcon">
           <input type="text" placeholder="Ваше имя" />
@@ -135,17 +126,7 @@ function LeaveFeedBack() {
           <p>
             Данное фото будет видно другим пользователям. Размер файла не больше 5 МБ с разрешением JPEG или PNG
           </p>
-        </div>
-        <div className="bottom">
-          <div className="left">
-            <img src={docIcon} alt="Документ" />
-            <h3>myphoto.jpeg</h3>
-          </div>
-          <div className="right">
-            <button>Выбрать</button>
-            <button className="delete">
-
-        <div className="bottom">
+        </div><div className="bottom">
           <div className="left">
             <img src={docIcon} alt="Документ" />
             <h3>{selectedFile ? selectedFile.name : 'Файл не выбран'}</h3> {/* тут имя файла */}
@@ -166,7 +147,6 @@ function LeaveFeedBack() {
             </button>
           </div>
         </div>
-        <button>Отправь</button>
 
         <button>Отправить</button>
       </div>
