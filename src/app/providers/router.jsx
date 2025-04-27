@@ -13,6 +13,7 @@ import EventInfo from "../../pages/EventInfo/EventInfo.jsx";
 import SighIn from "../../components/SignIn/SighIn.jsx";
 import SignUp from "../../components/SignUp/SignUp.jsx";
 import Code from "../../components/Code/Code.jsx";
+import Password from "../../components/password/Password.jsx";
 export const myRouter = createBrowserRouter([
     {
         path: "/",
@@ -32,7 +33,8 @@ export const myRouter = createBrowserRouter([
             {path: "FB", element: <LeaveFeedBack/>},
             {path: 'sighIn', element: <SighIn/>},
             {path: 'signUp', element: <SignUp/>},
-            {path: '/verify', element: <Code/>}
+            {path: '/verify', element: <Code/>},
+            {path: '/password', element: <Password/>}
         ]
     },
 
