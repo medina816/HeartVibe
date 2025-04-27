@@ -4,12 +4,12 @@ import "./FeedbackFromVolunteersCard.scss"
 function FeedbackFromVolunteersCard({ review }) {
   return (
     <div className="FeedbackFromVolunteersCard">
-      <div className="FeedbackFromVolunteersCardContant">
+      <div className="FeedbackFromVolunteersCardContent">
         <div className="avatarContainer">
           <img src={review.avatar} className="avatar" alt={review.name} />
           <div>
             <h3>{review.name}</h3>
-            <img src={review.rating} alt="Рейтинг" />
+            <img src={review.rating} className="rating" alt="Рейтинг" />
           </div>
         </div>
         <p className="reviewsText">{review.reviewsText}</p>

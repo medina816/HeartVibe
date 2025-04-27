@@ -1,52 +1,131 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=M+PLUS+1p&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Vinyl&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=M+PLUS+1p&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Vinyl&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-.FeedbackFromVolunteersCard{
-    width: 438.5px;
-    height: 238px;
-    border-radius: 16px;
-    border: 1px solid #EBEBEB;
-    .FeedbackFromVolunteersCardContant{
-      padding: 24px;
-        width: 392px;
-        height: 138px;
-        .avatarContainer{
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            .avatar {
-                width: 64px;
-                height: 64px;
-            }
-            img{
-                margin-top: 4px;
-            }
-            h3{
-                font-family: Rubik;
-                font-weight: 600;
-                font-size: 18px;
-                line-height: 110.00000000000001%;
-                letter-spacing: -1%;
-                margin-bottom: 0;
-            }
-        }
-        .reviewsText{
-            font-family: Rubik;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 140%;
-            letter-spacing: -1%;
-            width: 392px;
-            height: 66px;
-    
-    
-        }
-        .date{
-            font-family: Roboto;
-            font-weight: 400;
-            font-size: 15px;
-            color: #1A1A1AB2;
-            margin-top: 34px;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.FeedbackFromVolunteersCard {
+  width: 100%;
+  max-width: 438.5px;
+  height: auto;
+  min-height: 238px;
+  border-radius: 16px;
+  border: 1px solid #EBEBEB;
+  padding: 24px;
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  .FeedbackFromVolunteersCardContent {
+    width: 100%;
+    height: auto;
+
+    .avatarContainer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      .avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .rating {
+        margin-top: 4px;
+        max-width: 100px;
+      }
+
+      h3 {
+        font-family: 'Rubik', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        margin: 0 0 4px 0;
+        color: #1A1A1A;
+      }
     }
 
+    .reviewsText {
+      font-family: 'Rubik', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: #1A1A1A;
+      margin: 0 0 16px 0;
+    }
+
+    .date {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      color: rgba(26, 26, 26, 0.7);
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .FeedbackFromVolunteersCard {
+    max-width: 100%;
+    padding: 20px;
+
+    .FeedbackFromVolunteersCardContent {
+      .avatarContainer {
+        gap: 12px;
+
+        .avatar {
+          width: 50px;
+          height: 50px;
+        }
+
+        h3 {
+          font-size: 16px;
+        }
+      }
+
+      .reviewsText {
+        font-size: 15px;
+      }
+
+      .date {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .FeedbackFromVolunteersCard {
+    padding: 16px;
+    min-height: auto;
+
+    .FeedbackFromVolunteersCardContent {
+      .avatarContainer {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .avatar {
+          width: 40px;
+          height: 40px;
+        }
+        > div {
+          width: 100%;
+        }
+        .rating {
+            width: 90px;
+            margin: 0;
+          }
+      }
+
+      .reviewsText {
+        font-size: 14px;
+        margin-bottom: 12px;
+      }
+
+      .date {
+        font-size: 14px;
+      }
+    }
+  }
 }

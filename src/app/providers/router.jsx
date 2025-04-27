@@ -3,6 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import Home from "../../pages/Home/Home";
 import About from "../../pages/About/About";
 import Club from "../../components/club/Club";
+import Reviews from "../../pages/Reviews/Reviews";
 export const myRouter = createBrowserRouter([
     {
         path: "/",
@@ -11,6 +12,7 @@ export const myRouter = createBrowserRouter([
             { path: "/", element: <Home/> },
             { path: "about", element: <About/> },
             {path: 'club', element: <Club/>}, 
+            {path: 'reviews', element: <Reviews/>}, 
         ]
     },
 
