@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendOtp } from '../../app/store/otp/otpSlice';  
+import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
 import sendIcon from '../../assets/svg/send.svg';
 import groupImg from '../../assets/image/group.png';
 import './SignUp.scss';
@@ -8,13 +9,31 @@ import './SignUp.scss';
 function SignUp() {
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();  // Инициализируем useNavigate
   const otpStatus = useSelector((state) => state.otp.otpStatus);
   const otpMessage = useSelector((state) => state.otp.otpMessage);
   const otpError = useSelector((state) => state.otp.otpError);
+  const lastRequestTime = useSelector((state) => state.otp.lastRequestTime);
+
+  // Проверка на блокировку кнопки на 30 секунд
+  const isButtonDisabled = lastRequestTime && (Date.now() - lastRequestTime < 30000);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(sendOtp(email)); 
+
+    // Если кнопка заблокирована
+    if (isButtonDisabled) {
+      alert('Пожалуйста, подождите 30 секунд перед повторной отправкой запроса.');
+      return;
+    }
+
+    // Отправляем OTP
+    dispatch(sendOtp(email)).then((action) => {
+      if (action.type === 'otp/sendOtp/fulfilled') {
+        // Переходим на страницу подтверждения, если запрос успешен
+        navigate('/verify'); 
+      }
+    });
   };
 
   return (
@@ -35,7 +54,7 @@ function SignUp() {
               autoComplete="off" 
             />
           </div>
-          <button className="btn">Отправить</button>
+          <button className="btn" disabled={isButtonDisabled}>Отправить</button>
         </form>
         {otpStatus === 'loading' && <p>Загрузка...</p>}
         {otpMessage && <p>{otpMessage}</p>}
