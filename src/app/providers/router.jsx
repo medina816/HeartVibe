@@ -12,6 +12,7 @@ import LeaveFeedBack from "../../components/LeaveFeedBack/LeaveFeedBack";
 import EventInfo from "../../pages/EventInfo/EventInfo.jsx";
 import SighIn from "../../components/SignIn/SighIn.jsx";
 import SignUp from "../../components/SignUp/SignUp.jsx";
+import Code from "../../components/Code/Code.jsx";
 export const myRouter = createBrowserRouter([
     {
         path: "/",
@@ -31,6 +32,7 @@ export const myRouter = createBrowserRouter([
             {path: "FB", element: <LeaveFeedBack/>},
             {path: 'sighIn', element: <SighIn/>},
             {path: 'signUp', element: <SignUp/>},
+            {path: '/verify', element: <Code/>}
         ]
     },
 
