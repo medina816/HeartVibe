@@ -16,7 +16,7 @@ export const verifyCode = createAsyncThunk(
 const otpVerificationSlice = createSlice({
   name: 'otpVerification',
   initialState: {
-    otpStatus: 'idle',  // idle, loading, succeeded, failed
+    otpStatus: 'idle',
     otpError: null,
     otpMessage: null,
   },
@@ -25,14 +25,24 @@ const otpVerificationSlice = createSlice({
     builder
       .addCase(verifyCode.pending, (state) => {
         state.otpStatus = 'loading';
+        state.otpError = null;
+        state.otpMessage = null;
       })
       .addCase(verifyCode.fulfilled, (state, action) => {
         state.otpStatus = 'succeeded';
-        state.otpMessage = action.payload.message;
+        if (typeof action.payload === 'object' && action.payload !== null) {
+          state.otpMessage = action.payload.message || action.payload.code || 'Код подтвержден успешно!';
+        } else {
+          state.otpMessage = action.payload || 'Код подтвержден успешно!';
+        }
       })
       .addCase(verifyCode.rejected, (state, action) => {
         state.otpStatus = 'failed';
-        state.otpError = action.payload.error;
+        if (typeof action.payload === 'object' && action.payload !== null) {
+          state.otpError = action.payload.error || action.payload.code || 'Ошибка при проверке кода';
+        } else {
+          state.otpError = action.payload || 'Ошибка при проверке кода';
+        }
       });
   },
 });

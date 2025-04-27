@@ -31,6 +31,8 @@ const otpSlice = createSlice({
     otpStatus: 'idle',
     otpError: null,
     otpMessage: null,
+    lastRequestTime: null,
+    email: null, // сохраняем email
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -41,10 +43,12 @@ const otpSlice = createSlice({
       .addCase(sendOtp.fulfilled, (state, action) => {
         state.otpStatus = 'succeeded';
         state.otpMessage = action.payload.message;
+        state.lastRequestTime = Date.now();
+        state.email = action.meta.arg; // сохраняем email из запроса
       })
       .addCase(sendOtp.rejected, (state, action) => {
         state.otpStatus = 'failed';
-        state.otpError = action.payload.error || 'Ошибка отправки OTP';
+        state.otpError = action.payload?.error || 'Ошибка отправки OTP';
       })
       .addCase(verifyOtp.pending, (state) => {
         state.otpStatus = 'loading';
@@ -55,7 +59,7 @@ const otpSlice = createSlice({
       })
       .addCase(verifyOtp.rejected, (state, action) => {
         state.otpStatus = 'failed';
-        state.otpError = action.payload.error || 'Ошибка верификации OTP';
+        state.otpError = action.payload?.error || 'Ошибка верификации OTP';
       });
   },
 });

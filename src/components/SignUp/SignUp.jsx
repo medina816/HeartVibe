@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { sendOtp } from '../../app/store/otp/otpSlice';  
+import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
 import sendIcon from '../../assets/svg/send.svg';
 import groupImg from '../../assets/image/group.png';
 import './SignUp.scss';
@@ -8,26 +9,31 @@ import './SignUp.scss';
 function SignUp() {
   const [email, setEmail] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();  // Инициализируем useNavigate
   const otpStatus = useSelector((state) => state.otp.otpStatus);
   const otpMessage = useSelector((state) => state.otp.otpMessage);
   const otpError = useSelector((state) => state.otp.otpError);
+  const lastRequestTime = useSelector((state) => state.otp.lastRequestTime);
 
-  // Функция для проверки формата email
-  const validateEmail = (email) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
-  };
+  // Проверка на блокировку кнопки на 30 секунд
+  const isButtonDisabled = lastRequestTime && (Date.now() - lastRequestTime < 30000);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Если email некорректный
-    if (!validateEmail(email)) {
-      alert("Пожалуйста, введите корректный email");
+
+    // Если кнопка заблокирована
+    if (isButtonDisabled) {
+      alert('Пожалуйста, подождите 30 секунд перед повторной отправкой запроса.');
       return;
     }
 
-    dispatch(sendOtp(email)); // Отправка OTP
+    // Отправляем OTP
+    dispatch(sendOtp(email)).then((action) => {
+      if (action.type === 'otp/sendOtp/fulfilled') {
+        // Переходим на страницу подтверждения, если запрос успешен
+        navigate('/verify'); 
+      }
+    });
   };
 
   return (
@@ -48,14 +54,9 @@ function SignUp() {
               autoComplete="off" 
             />
           </div>
-          <button 
-            className="btn" 
-            type="submit" 
-            disabled={otpStatus === 'loading'} // Кнопка заблокирована только при загрузке
-          >
-            {otpStatus === 'loading' ? 'Загрузка...' : 'Отправить'}
-          </button>
+          <button className="btn" disabled={isButtonDisabled}>Отправить</button>
         </form>
+        {otpStatus === 'loading' && <p>Загрузка...</p>}
         {otpMessage && <p>{otpMessage}</p>}
         {otpError && <p style={{ color: 'red' }}>{otpError}</p>}
         <p>Есть аккаунт? 
