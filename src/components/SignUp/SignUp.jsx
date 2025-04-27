@@ -12,9 +12,22 @@ function SignUp() {
   const otpMessage = useSelector((state) => state.otp.otpMessage);
   const otpError = useSelector((state) => state.otp.otpError);
 
+  // Функция для проверки формата email
+  const validateEmail = (email) => {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(sendOtp(email)); 
+    
+    // Если email некорректный
+    if (!validateEmail(email)) {
+      alert("Пожалуйста, введите корректный email");
+      return;
+    }
+
+    dispatch(sendOtp(email)); // Отправка OTP
   };
 
   return (
@@ -35,9 +48,14 @@ function SignUp() {
               autoComplete="off" 
             />
           </div>
-          <button className="btn">Отправить</button>
+          <button 
+            className="btn" 
+            type="submit" 
+            disabled={otpStatus === 'loading'} // Кнопка заблокирована только при загрузке
+          >
+            {otpStatus === 'loading' ? 'Загрузка...' : 'Отправить'}
+          </button>
         </form>
-        {otpStatus === 'loading' && <p>Загрузка...</p>}
         {otpMessage && <p>{otpMessage}</p>}
         {otpError && <p style={{ color: 'red' }}>{otpError}</p>}
         <p>Есть аккаунт? 
