@@ -4,6 +4,7 @@ import feedbackReducer from './feedbackSlice/feedbackSlice.js'
 import teamsReducer from './team/teamSlice.js'
 import newsReducer from "./new/NewsSlice.js"; 
 import reviewsReducer from '../store/reviews/reviewSlice.js'; 
+import otpReducer from '../store/otp/otpSlice.js';
 import {languageReducer} from "./languageSlice/languageSlice.js";
 import profileReducer from './profile/ProfileSlice.js';
 
@@ -17,6 +18,7 @@ const myStore = configureStore({
         reviews: reviewsReducer,
         language: languageReducer,
         profile: profileReducer,
+        otp: otpReducer,
     },
 });
 
