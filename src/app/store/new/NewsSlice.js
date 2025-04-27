@@ -1,15 +1,20 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import apiClient from "../../services/apiClient";
 
-export const fetchNews = createAsyncThunk("news/fetchNews", async () => {
-  const response = await apiClient.get("news");
-  return response.data;
-});
+// Получаем список всех новостей с учетом языка
+export const fetchNews = createAsyncThunk(
+  "news/fetchNews",
+  async (lang = 'ru') => {
+    const response = await apiClient.get(`news?lang=${lang}`);
+    return response.data;
+  }
+);
 
+// Получаем одну новость по ID с учетом языка
 export const fetchSingleNews = createAsyncThunk(
   "news/fetchSingleNews",
-  async (id) => {
-    const response = await apiClient.get(`news/${id}`);
+  async ({ id, lang = 'ru' }) => {
+    const response = await apiClient.get(`news/${id}?lang=${lang}`);
     return response.data;
   }
 );
