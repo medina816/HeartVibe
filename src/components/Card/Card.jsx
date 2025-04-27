@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { FaFirefox } from "react-icons/fa";
-import calendar from "../../assets/new/svg/calendar.svg";
+import calendar from '../../assets/svg/calendar.svg';
 import locationIcon from "../../assets/svg/location.svg";
 import dateIcon from "../../assets/svg/date.svg";
 import "./Card.scss";
@@ -15,6 +15,7 @@ function Card({ event }) {
     // Локализация текстов
     const getLocalizedText = (field) => {
         if (!field) return '';
+        if (typeof field === 'string') return field; // <-- добавил эту проверку
         return field[i18n.language] || field['en'] || '';
     };
 

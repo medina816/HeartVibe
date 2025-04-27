@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {fetchSingleNews, clearCurrentArticle,} from '../../app/store/new/NewsSlice';
-import calendar from "../../assets/new/svg/calendar.svg";
+import calendar from '../../assets/svg/calendar.svg';   
 import "./NewsInfo.scss";
 import NewsCard from "../../components/Card/newsCard/NewsCard.jsx";
 import {Navigation, Pagination} from "swiper/modules";

@@ -71,11 +71,12 @@ function Header() {
                             </button>
                         ))}
                     </div>
-
+                    <Link to='/sighIn'>
                     <button className="title-btn">
                         {t("login")}
                         <img src={arrow} alt={t("arrow_alt") || "Arrow"} />
                     </button>
+                    </Link>
                 </div>
             </div>
         </div>
