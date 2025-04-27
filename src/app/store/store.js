@@ -5,6 +5,7 @@ import teamsReducer from './team/teamSlice.js'
 import newsReducer from "./new/NewsSlice.js"; 
 import reviewsReducer from '../store/reviews/reviewSlice.js'; 
 import {languageReducer} from "./languageSlice/languageSlice.js";
+import profileReducer from './profile/ProfileSlice.js';
 
 const myStore = configureStore({ 
     reducer: {
@@ -15,6 +16,7 @@ const myStore = configureStore({
         news: newsReducer, 
         reviews: reviewsReducer,
         language: languageReducer,
+        profile: profileReducer,
     },
 });
 
