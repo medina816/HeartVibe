@@ -1,5 +1,5 @@
 import React from "react";
-import calendar from "../../../assets/new/svg/calendar.svg";
+import calendar from "../../../assets/svg/calendar.svg";
 import { Link } from "react-router-dom";
 import "./NewsCard.scss"
 
