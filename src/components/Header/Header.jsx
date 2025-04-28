@@ -33,7 +33,7 @@ function Header() {
         { path: "/club", translationKey: "club" },
         { path: "/all-events", translationKey: "events" },
         { path: "/all-news", translationKey: "news" },
-        { path: "/all-reviews", translationKey: "reviews" }
+        { path: "/FB", translationKey: "reviews" }
     ];
 
     return (
