@@ -8,6 +8,8 @@ import otpReducer from '../store/otp/otpSlice.js';
 import {languageReducer} from "./languageSlice/languageSlice.js";
 import profileReducer from './profile/ProfileSlice.js';
 import otpVerificationReducer from '../store/otpVerificationSlice/otpVerificationSlice.js';
+import passwordReducer from "./password/passwordSlice.js";
+
 
 const myStore = configureStore({ 
     reducer: {
@@ -21,6 +23,8 @@ const myStore = configureStore({
         otp: otpReducer,
         profile: profileReducer,
         otpVerification: otpVerificationReducer,
+        password: passwordReducer,
+
 
     },
 });

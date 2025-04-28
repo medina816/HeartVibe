@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { verifyCode } from '../../app/store/otpVerificationSlice/otpVerificationSlice';
+import { useNavigate } from 'react-router-dom';
 import famImg from '../../assets/image/fam.png';
 import './code.scss';
 
@@ -9,6 +10,7 @@ function Code() {
   const [timer, setTimer] = useState(59);
   const inputsRef = useRef([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate(); 
   const { otpStatus, otpError, otpMessage } = useSelector((state) => state.otpVerification);
   const email = useSelector((state) => state.otp.email);
 
@@ -18,6 +20,12 @@ function Code() {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (otpStatus === 'succeeded') {
+      navigate('/password'); 
+    }
+  }, [otpStatus, navigate]);
 
   const handleChange = (index, value) => {
     if (isNaN(value)) return;
