@@ -1,6 +1,8 @@
+// otpVerificationSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import apiClient from '../../services/apiClient';
 
+// Асинхронная проверка OTP
 export const verifyCode = createAsyncThunk(
   'otpVerification/verifyCode',
   async ({ email, code }, { rejectWithValue }) => {
@@ -13,6 +15,7 @@ export const verifyCode = createAsyncThunk(
   }
 );
 
+// Слайс для верификации OTP
 const otpVerificationSlice = createSlice({
   name: 'otpVerification',
   initialState: {
@@ -30,19 +33,11 @@ const otpVerificationSlice = createSlice({
       })
       .addCase(verifyCode.fulfilled, (state, action) => {
         state.otpStatus = 'succeeded';
-        if (typeof action.payload === 'object' && action.payload !== null) {
-          state.otpMessage = action.payload.message || action.payload.code || 'Код подтвержден успешно!';
-        } else {
-          state.otpMessage = action.payload || 'Код подтвержден успешно!';
-        }
+        state.otpMessage = action.payload.message || 'Код подтвержден успешно!';
       })
       .addCase(verifyCode.rejected, (state, action) => {
         state.otpStatus = 'failed';
-        if (typeof action.payload === 'object' && action.payload !== null) {
-          state.otpError = action.payload.error || action.payload.code || 'Ошибка при проверке кода';
-        } else {
-          state.otpError = action.payload || 'Ошибка при проверке кода';
-        }
+        state.otpError = action.payload?.error || 'Ошибка при проверке кода';
       });
   },
 });

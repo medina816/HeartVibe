@@ -1,3 +1,4 @@
+// passwordSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import apiClient from "../../services/apiClient";
 
@@ -6,16 +7,13 @@ export const changePassword = createAsyncThunk(
   "password/changePassword",
   async ({ passwordData, token }, { rejectWithValue }) => {
     try {
-      // Отправляем запрос с подтверждением через токен
       const response = await apiClient.put("/change-password/", passwordData, {
         headers: {
-          Authorization: `Bearer ${token}`, // Передаем токен подтверждения в заголовке
+          Authorization: `Bearer ${token}`,
         },
       });
-
-      return response.data; // Возвращаем данные ответа от сервера
+      return response.data;
     } catch (error) {
-      // Обработка ошибки
       return rejectWithValue(error.response?.data || "Что-то пошло не так!");
     }
   }

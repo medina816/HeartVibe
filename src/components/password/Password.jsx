@@ -5,6 +5,8 @@ import helpImg from "../../assets/image/help.png";
 import { LuEyeClosed } from "react-icons/lu";
 import { useDispatch, useSelector } from "react-redux";
 import { changePassword } from "../../app/store/password/passwordSlice";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./password.scss";
 
 function Password() {
@@ -14,15 +16,21 @@ function Password() {
 
   const { loading, success, error } = useSelector((state) => state.password);
 
-  // Получаем токен из localStorage или другого хранилища (если это необходимо)
+  // Получаем токен из localStorage или другого хранилища
   const token = localStorage.getItem("confirmationToken");
 
   const handleSubmit = () => {
-    if (password === confirmPassword) {
-      const passwordData = { password }; // Если нужно, добавьте другие параметры
-      dispatch(changePassword(passwordData, token)); // Передаем token для авторизации
+    if (password.trim() === confirmPassword.trim()) {
+      const passwordData = { password };
+      if (token) {
+        dispatch(changePassword(passwordData, token))
+          .then(() => toast.success("Пароль изменён успешно!"))
+          .catch(() => toast.error("Ошибка при изменении пароля."));
+      } else {
+        toast.error("Ошибка: отсутствует токен подтверждения.");
+      }
     } else {
-      alert("Пароли не совпадают");
+      toast.error("Пароли не совпадают");
     }
   };
 
@@ -52,7 +60,7 @@ function Password() {
             <img src={passwordIcon} alt="Password Icon" />
           </span>
           <input
-            type="password" // Изменил на password
+            type="password"
             placeholder="Повторите пароль"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -63,9 +71,7 @@ function Password() {
         <button onClick={handleSubmit} disabled={loading}>
           {loading ? "Загрузка..." : "Подтвердить"}
         </button>
-        {/* Обработка ошибки */}
         {error && <p className="error">{error?.detail || error}</p>}
-        {success && <p className="success">Пароль изменён успешно!</p>}
       </div>
       <div className="right">
         <img src={helpImg} alt="Help" />
