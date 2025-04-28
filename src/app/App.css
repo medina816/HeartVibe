@@ -51,4 +51,7 @@ ul {
   /*border: 2px solid red;*/
   margin: 0 auto;
 }
-
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
