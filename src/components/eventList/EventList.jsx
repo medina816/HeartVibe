@@ -9,14 +9,15 @@ import { useTranslation } from "react-i18next";
 
 function EventsList() {
   const dispatch = useDispatch();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { events, status: eventsStatus, error: eventsError } = useSelector((state) => state.events);
   const { categories, status: categoriesStatus, error: categoriesError } = useSelector((state) => state.categories);
 
+  // Загружаем данные при смене языка
   useEffect(() => {
-    if (eventsStatus === 'idle') dispatch(fetchEvents());
-    if (categoriesStatus === 'idle') dispatch(fetchCategories());
-  }, [dispatch, eventsStatus, categoriesStatus]);
+    dispatch(fetchEvents());
+    dispatch(fetchCategories());
+  }, [dispatch, i18n.language]); // <<< Теперь следим за i18n.language !!!
 
   if (eventsStatus === 'loading' || categoriesStatus === 'loading') return <p>{t("loading")}</p>;
   if (eventsStatus === 'failed') return <p>{t("error")}: {eventsError}</p>;
